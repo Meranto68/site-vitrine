@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 190" role="img" aria-labelledby="title desc">
-  <title id="title">Meranto Studio</title><desc id="desc">Logo Meranto Studio, symbole M bleu turquoise violet et nom bleu nuit.</desc>
-  <defs><linearGradient id="g" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#1658E8"/><stop offset=".34" stop-color="#12A8F4"/><stop offset=".68" stop-color="#19D2C2"/><stop offset="1" stop-color="#8758E8"/></linearGradient></defs>
-  <path d="M24 134 C37 139 48 134 56 118 L88 66 C97 51 114 51 123 67 L152 120 C160 137 177 137 186 120 L215 67 C224 51 241 52 250 68 L279 120 C287 135 298 137 308 131" fill="none" stroke="url(#g)" stroke-width="27" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="350" y="105" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="76" font-weight="700" letter-spacing="-2" fill="#111C32">Meranto</text>
-  <text x="355" y="153" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="30" font-weight="600" letter-spacing="11" fill="#075F72">STUDIO</text>
-</svg>
