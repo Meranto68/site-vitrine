@@ -1,0 +1,10 @@
+Contraste calculé sur les paires de couleurs de base (sRGB, formule WCAG).
+
+Texte principal clair #172033 sur fond #F6F5F0 : 14.9:1
+Texte secondaire clair #47536A sur fond #F6F5F0 : 7.1:1
+Texte principal sombre #F7F9FC sur fond #111827 : 16.8:1
+Texte secondaire sombre #C5D0E0 sur fond #111827 : 11.4:1
+Bouton clair texte #FFFFFF sur fond #0759A6 : 7.0:1
+Bouton sombre texte #071426 sur fond #21D3C5 : 9.8:1
+
+Les valeurs calculées ne certifient pas l'ensemble du site. Il faut contrôler toutes les combinaisons réellement utilisées, les états hover/focus/disabled, les images, les composants tiers et les pages ultérieures.
