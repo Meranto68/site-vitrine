@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1010 824" width="1010" height="824" role="img" aria-label="Meranto Studio"><title>Meranto Studio</title><defs>
+<linearGradient id="gA" x1="0" y1="210" x2="0" y2="820" gradientUnits="userSpaceOnUse">
+  <stop offset="0" stop-color="#3FC3F2"/><stop offset=".45" stop-color="#4DB4F4"/><stop offset="1" stop-color="#2460EA"/>
+</linearGradient>
+<linearGradient id="gB" x1="300" y1="300" x2="400" y2="620" gradientUnits="userSpaceOnUse">
+  <stop offset="0" stop-color="#3FA9E6"/><stop offset=".5" stop-color="#2C7FD0"/><stop offset="1" stop-color="#123F8F"/>
+</linearGradient>
+<linearGradient id="gC" x1="0" y1="210" x2="0" y2="822" gradientUnits="userSpaceOnUse">
+  <stop offset="0" stop-color="#7DF3FC"/><stop offset=".3" stop-color="#63DDF7"/><stop offset=".6" stop-color="#44A8F5"/><stop offset="1" stop-color="#2159E6"/>
+</linearGradient>
+<linearGradient id="gD" x1="700" y1="380" x2="900" y2="770" gradientUnits="userSpaceOnUse">
+  <stop offset="0" stop-color="#127F86"/><stop offset=".3" stop-color="#17A9A0"/><stop offset=".65" stop-color="#19CCB5"/><stop offset="1" stop-color="#1FE0BC"/>
+</linearGradient>
+<linearGradient id="gE" x1="110" y1="690" x2="240" y2="820" gradientUnits="userSpaceOnUse">
+  <stop offset="0" stop-color="#1B4FB0"/><stop offset="1" stop-color="#0F2F7A"/>
+</linearGradient>
+</defs><g transform="translate(0 0) scale(1.00000) translate(0 -18)"><path fill="url(#gE)" d="M128 686 C100 730 100 790 150 812 C185 824 215 822 240 815 L246 792 C190 780 140 750 128 686 Z"/><path fill="url(#gB)" d="M352 282 L448 470 L366 622 L262 412 C285 370 320 320 352 282 Z"/><path fill="url(#gA)" d="M22 540 L168 282 C190 240 225 210 268 210 C308 210 338 238 356 280 C320 320 290 366 264 414 L130 686 C118 716 112 760 150 812 C100 800 58 762 28 708 C-4 650 -6 592 22 540 Z"/><path fill="url(#gC)" d="M150 812 C180 822 215 824 250 820 C330 812 400 770 470 690 C540 610 600 510 664 420 C690 384 730 368 770 376 C795 381 815 392 832 412 C822 370 806 320 780 278 C752 236 710 210 662 210 C615 210 580 235 555 275 L448 470 L366 622 C330 690 290 760 246 792 C215 812 180 818 150 812 Z"/><path fill="url(#gD)" d="M664 420 C690 384 730 368 770 376 C795 381 815 392 832 412 L884 588 C894 622 915 634 945 634 C968 634 990 628 1008 618 C1000 690 960 750 900 772 C860 786 815 776 785 740 C760 710 745 680 734 640 Z"/><path fill="#EEF2F8" d="M862 18 C868 80 890 108 958 117 C890 126 868 150 862 214 C856 150 834 126 768 117 C834 108 856 80 862 18 Z"/></g></svg>

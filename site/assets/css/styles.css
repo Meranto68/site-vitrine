@@ -121,7 +121,7 @@ p { text-wrap: pretty; }
 }
 
 .brand { display: inline-flex; flex: 0 0 auto; margin-right: auto; }
-.logo { display: block; width: 11rem; height: auto; }
+.logo { display: block; width: 12rem; height: auto; }
 .logo-light { display: none; }
 :root[data-theme="light"] .logo-light { display: block; }
 :root[data-theme="light"] .logo-dark { display: none; }
