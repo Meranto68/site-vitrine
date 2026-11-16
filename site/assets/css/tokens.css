@@ -1,0 +1,112 @@
+/* Meranto Studio · charte graphique (couleurs, polices, rayons). Palette pensée pour viser WCAG 2.2 AA.
+   Le dégradé de marque est décoratif : jamais pour du petit texte. */
+
+@font-face {
+  font-family: Poppins;
+  src: url("../fonts/poppins-latin-600-normal.woff2") format("woff2");
+  font-weight: 500 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Inter;
+  src: url("../fonts/inter-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Inter;
+  src: url("../fonts/inter-latin-700-normal.woff2") format("woff2");
+  font-weight: 600 800;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+  --font-body: Inter, "Segoe UI", Arial, sans-serif;
+  --font-display: Poppins, Inter, "Segoe UI", Arial, sans-serif;
+  --font-code: Poppins, Inter, sans-serif;
+  --radius-sm: .65rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --content: 74rem;
+  --brand-blue: #2460EA;
+  --brand-cyan: #3FC3F2;
+  --brand-teal: #1FE0BC;
+  --brand-star: #2F7CF0;
+  --gradient: linear-gradient(120deg, var(--brand-blue), var(--brand-cyan) 50%, var(--brand-teal));
+  --ink: #0B1220;
+  --muted: #47536A;
+  --paper: #F6F5F0;
+  --surface: #FFFFFF;
+  --surface-soft: #ECEFF4;
+  --border: #AAB4C3;
+  --line: #D5DAE2;
+  --action: #2159E6;
+  --action-text: #FFFFFF;
+  --accent-ink: #07202A;
+  --accent-text: #1B4FB0;
+  --live: #0A7D73;
+  --live-soft: #DDF5F2;
+  --warn: #8A4B00;
+  --warn-soft: #FCEFD9;
+  --error: #B42318;
+  --focus: #2159E6;
+  --shadow: 0 18px 50px rgb(17 28 50 / 10%);
+  --user-scale: 1;
+  --user-leading: 1.65;
+  --user-letter-spacing: 0;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ink: #F7F9FC;
+  --muted: #C5D0E0;
+  --paper: #050A14;
+  --surface: #0B1220;
+  --surface-soft: #131D31;
+  --border: #5B6A84;
+  --line: #1E2A40;
+  --action: #45D7E9;
+  --action-text: #050A14;
+  --accent-ink: #050A14;
+  --accent-text: #45D7E9;
+  --live: #1FE0BC;
+  --live-soft: #0F3438;
+  --warn: #F5B865;
+  --warn-soft: #3A2A12;
+  --error: #FF8A80;
+  --focus: #7CCBFF;
+  --shadow: 0 18px 50px rgb(0 0 0 / 28%);
+}
+
+:root[data-contrast="high"] {
+  --paper: #FFFFFF;
+  --surface: #FFFFFF;
+  --surface-soft: #F1F1F1;
+  --ink: #000000;
+  --muted: #202020;
+  --border: #333333;
+  --line: #333333;
+  --action: #003A75;
+  --action-text: #FFFFFF;
+  --accent-text: #003A75;
+  --live: #005A52;
+  --focus: #000000;
+}
+
+:root[data-theme="dark"][data-contrast="high"] {
+  --paper: #000000;
+  --surface: #000000;
+  --surface-soft: #141414;
+  --ink: #FFFFFF;
+  --muted: #F1F1F1;
+  --border: #E0E0E0;
+  --line: #E0E0E0;
+  --action: #FFFFFF;
+  --action-text: #000000;
+  --accent-text: #FFFFFF;
+  --live: #7FFFF4;
+  --focus: #FFFF00;
+}

@@ -1,0 +1,10 @@
+{
+  "name": "meranto-site-vitrine",
+  "private": true,
+  "description": "Site vitrine de Meranto Studio (HTML, CSS et JavaScript sans framework).",
+  "type": "module",
+  "scripts": {
+    "construire": "node outils/assembler.mjs",
+    "apercu": "node outils/assembler.mjs && python3 -m http.server 8000 --directory site"
+  }
+}

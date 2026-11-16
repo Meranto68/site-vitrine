@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="fr" data-theme="dark" data-contrast="normal">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>Meranto Studio · Sites web pour les professionnels et les petites entreprises</title>
+  <meta name="description" content="Meranto Studio crée ou refait le site web de votre activité : clair, lisible sur téléphone, en ligne en quelques jours. Tout par e-mail, réponse sous 24 h ouvrées.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://meranto-studio.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Meranto Studio">
+  <meta property="og:title" content="Meranto Studio · Sites web pour les professionnels et les petites entreprises">
+  <meta property="og:description" content="Meranto Studio crée ou refait le site web de votre activité : clair, lisible sur téléphone, en ligne en quelques jours. Tout par e-mail, réponse sous 24 h ouvrées.">
+  <meta property="og:url" content="https://meranto-studio.com/">
+  <meta property="og:image" content="https://meranto-studio.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Logo Meranto Studio">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#F6F5F0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#050A14" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preload" href="assets/fonts/poppins-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/preferences.js"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Meranto Studio","url":"https://meranto-studio.com/","logo":"https://meranto-studio.com/assets/logos/icone-512.png","email":"contact@meranto-studio.com","description":"Meranto Studio crée ou refait le site web de votre activité : clair, lisible sur téléphone, en ligne en quelques jours. Tout par e-mail, réponse sous 24 h ouvrées.","contactPoint":{"@type":"ContactPoint","contactType":"customer service","email":"contact@meranto-studio.com","availableLanguage":"French"}}</script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu principal</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./" aria-label="Meranto Studio, accueil">
+        <img src="assets/logos/logo-horizontal-fond-sombre.svg" class="logo logo-dark" alt="Meranto Studio" width="190" height="56">
+        <img src="assets/logos/logo-horizontal-fond-clair.svg" class="logo logo-light" alt="Meranto Studio" width="190" height="56">
+      </a>
+      <button class="menu-bouton" id="menuToggle" type="button" aria-expanded="false" aria-controls="menuPrincipal">
+        <span class="menu-icone" aria-hidden="true"></span> Menu
+      </button>
+      <nav class="main-nav" id="menuPrincipal" aria-label="Navigation principale">
+        <a href="offres.html" data-nav="offres">Offres</a>
+        <a href="methode.html" data-nav="methode">Méthode</a>
+        <a href="exemple.html" data-nav="exemple">Réalisation</a>
+        <a href="faq.html" data-nav="faq">Questions</a>
+        <a href="contact.html" class="nav-cta" data-nav="contact">Demander un devis</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-button" id="themeToggle" type="button" aria-label="Changer de thème" title="Changer de thème">
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.7 8.7 0 1 0 20.5 14.2Z"/></svg>
+        </button>
+        <button class="icon-button" id="accessToggle" type="button" aria-expanded="false" aria-controls="accessPanel" aria-label="Options d'accessibilité" title="Accessibilité">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="4.5" r="1.8"/><path d="M5 8.5c2.3.7 4.6 1 7 1s4.7-.3 7-1M12 9.5v5m0 0-3 6m3-6 3 6"/></svg>
+        </button>
+      </div>
+    </div>
+    <section class="access-panel" id="accessPanel" aria-labelledby="accessTitle" hidden>
+      <div class="container access-inner">
+        <h2 id="accessTitle" tabindex="-1">Adapter l'affichage</h2>
+        <div class="access-controls">
+          <fieldset>
+            <legend>Taille du texte</legend>
+            <div class="button-row">
+              <button type="button" class="small-control" id="decreaseText" aria-label="Diminuer la taille du texte">A−</button>
+              <output id="textSizeValue" aria-live="polite">100 %</output>
+              <button type="button" class="small-control" id="increaseText" aria-label="Augmenter la taille du texte">A+</button>
+            </div>
+          </fieldset>
+          <label class="check-control"><input id="highContrast" type="checkbox"> Contraste renforcé</label>
+          <label class="check-control"><input id="spaciousText" type="checkbox"> Espacement du texte</label>
+          <label class="check-control"><input id="reduceMotion" type="checkbox"> Réduire les animations</label>
+          <button type="button" class="text-button" id="resetAccess">Réinitialiser</button>
+        </div>
+        <p class="access-note">Ces préférences restent sur cet appareil uniquement.</p>
+      </div>
+    </section>
+  </header>
+
+  <main id="contenu">
+<section class="hero container" aria-labelledby="heroTitle">
+      <p class="surtitre">Sites web pour les professionnels et les petites entreprises</p>
+      <h1 id="heroTitle">Un site clair pour votre activité, <span class="accent-texte">en ligne en quelques jours.</span></h1>
+      <p class="hero-lead">Nous créons ou refaisons votre site. Vous nous écrivez, nous répondons sous 24 heures ouvrées, et tout se passe par e-mail : pas d'appel, pas de rendez-vous.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="contact.html">Demander un devis <span aria-hidden="true">→</span></a>
+        <a class="button button-secondary" href="offres.html">Voir les offres</a>
+      </div>
+    </section>
+
+    <section class="bande" aria-labelledby="etapesTitre">
+      <div class="container">
+        <h2 id="etapesTitre" class="visually-hidden">Les quatre étapes</h2>
+        <ol class="frise">
+          <li><span class="frise-num" aria-hidden="true">1</span><strong>Demande</strong><span>Réponse sous 24 h ouvrées</span></li>
+          <li><span class="frise-num" aria-hidden="true">2</span><strong>Devis</strong><span>Sous 48 h, signé en ligne</span></li>
+          <li><span class="frise-num" aria-hidden="true">3</span><strong>Création</strong><span>5 à 10 jours ouvrés</span></li>
+          <li><span class="frise-num" aria-hidden="true">4</span><strong>En ligne</strong><span>Sur votre nom de domaine</span></li>
+        </ol>
+        <p class="bande-lien"><a href="methode.html">Le détail de chaque étape <span aria-hidden="true">→</span></a></p>
+      </div>
+    </section>
+
+    <section class="section container" aria-labelledby="faireTitre">
+      <div class="deux-colonnes">
+        <header class="titre-section">
+          <h2 id="faireTitre">Ce que nous faisons</h2>
+          <p>Deux formules, selon l'état de votre site actuel.</p>
+        </header>
+        <div class="liste-offres">
+          <a class="offre-lien" href="offres.html">
+            <strong>Rafraîchissement</strong>
+            <span>Votre site est correct mais daté : design modernisé, textes mis à jour, corrections techniques. Jusqu'à 5 pages, prêt en 5 jours ouvrés.</span>
+          </a>
+          <a class="offre-lien" href="offres.html">
+            <strong>Refonte complète</strong>
+            <span>Votre site ne vous ressemble plus, ou vous n'en avez pas : 6 à 10 pages, textes rédigés, fiche Google. Prêt en 10 jours ouvrés.</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" aria-labelledby="pourquiTitre">
+      <div class="deux-colonnes">
+        <header class="titre-section">
+          <h2 id="pourquiTitre">Pour qui</h2>
+          <p>Les activités qui ont besoin d'un site simple, à jour et rassurant.</p>
+        </header>
+        <ul class="publics">
+          <li><strong>Santé et soin</strong><span>Cliniques vétérinaires, cabinets, praticiens</span></li>
+          <li><strong>Commerces</strong><span>Boutiques, restaurants, métiers de bouche</span></li>
+          <li><strong>Artisans et services</strong><span>Bâtiment, réparation, services à domicile</span></li>
+          <li><strong>Indépendants</strong><span>Conseil, professions libérales, associations</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section container" aria-labelledby="pourquoiTitre">
+      <div class="deux-colonnes">
+        <header class="titre-section">
+          <h2 id="pourquoiTitre">Pourquoi nous</h2>
+          <p>Moins de temps passé pour vous, et aucune surprise.</p>
+        </header>
+        <ul class="points">
+          <li><strong>Tout par e-mail.</strong> Vous répondez quand vous voulez, et tout reste écrit.</li>
+          <li><strong>Un site qui vous ressemble.</strong> Chaque site est conçu pour son activité, jamais copié d'un autre.</li>
+          <li><strong>Vous validez avant.</strong> Aperçu privé, deux tours de retouches, puis mise en ligne seulement avec votre accord.</li>
+          <li><strong>Rien n'est perdu.</strong> Votre ancien site est sauvegardé ; le nom de domaine reste à votre nom.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section container" aria-labelledby="exempleTitre">
+      <div class="deux-colonnes">
+        <header class="titre-section">
+          <h2 id="exempleTitre">Avant, après</h2>
+          <p>Le site d'une clinique vétérinaire alsacienne. Glissez pour comparer.</p>
+          <p><a class="lien-fleche" href="exemple.html">Voir la réalisation <span aria-hidden="true">→</span></a></p>
+        </header>
+        <div class="comparateur" data-comparateur style="--position: 50%">
+          <img src="assets/img/exemple/avant-ordinateur.jpg" alt="Ancien site de la clinique : grande photo d'en-tête, onglets, informations en texte brut" width="1280" height="1600" loading="lazy" class="comparateur-avant">
+          <img src="assets/img/exemple/apres-ordinateur.jpg" alt="Nouveau site de la clinique : menu clair, bouton de rendez-vous, grande photo des locaux" width="1280" height="1600" loading="lazy" class="comparateur-apres">
+          <span class="comparateur-badge gauche" aria-hidden="true">Avant</span>
+          <span class="comparateur-badge droite" aria-hidden="true">Après</span>
+          <span class="comparateur-ligne" aria-hidden="true"></span>
+          <label class="visually-hidden" for="comparateurAccueil">Position du comparateur avant / après</label>
+          <input id="comparateurAccueil" class="comparateur-curseur" type="range" min="0" max="100" value="50">
+        </div>
+      </div>
+    </section>
+
+    <section class="appel" aria-labelledby="appelTitre">
+      <div class="container appel-inner">
+        <h2 id="appelTitre">Parlons de votre site</h2>
+        <p>Deux minutes pour décrire votre besoin. Réponse écrite sous 24 heures ouvrées ; le devis ne vous engage à rien tant que vous ne l'avez pas signé.</p>
+        <a class="button button-primary" href="contact.html">Demander un devis <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-marque">
+        <img src="assets/logos/logo-horizontal-fond-sombre.svg" class="logo logo-dark" alt="Meranto Studio" width="170" height="50">
+        <img src="assets/logos/logo-horizontal-fond-clair.svg" class="logo logo-light" alt="Meranto Studio" width="170" height="50">
+        <p>Sites web pour les professionnels et les petites entreprises. Tout se fait par e-mail.</p>
+      </div>
+      <nav aria-label="Agence">
+        <h2 class="footer-titre">Agence</h2>
+        <ul>
+          <li><a href="offres.html">Offres</a></li>
+          <li><a href="methode.html">Méthode</a></li>
+          <li><a href="exemple.html">Réalisation</a></li>
+          <li><a href="faq.html">Questions fréquentes</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2 class="footer-titre">Nous écrire</h2>
+        <ul>
+          <li><a href="mailto:contact@meranto-studio.com">contact@meranto-studio.com</a></li>
+          <li><a href="contact.html">Formulaire de demande</a></li>
+          <li class="footer-note">Réponse sous 24 heures ouvrées</li>
+        </ul>
+      </div>
+      <nav aria-label="Informations légales">
+        <h2 class="footer-titre">Informations</h2>
+        <ul>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+          <li><a href="confidentialite.html">Confidentialité</a></li>
+          <li><a href="accessibilite.html">Accessibilité</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container footer-bas">
+      <p>© 2026 Meranto Studio</p>
+      <p>Aucun cookie. Mesure d'audience anonyme, <a href="confidentialite.html#audience">en savoir plus</a>.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/config.js" defer></script>
+  <script src="assets/js/app.js" defer></script>
+  <script src="assets/js/mesure.js" defer></script>
+  
+</body>
+</html>

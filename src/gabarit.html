@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fr" data-theme="dark" data-contrast="normal">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {{base}}
+  <title>{{titre}}</title>
+  <meta name="description" content="{{description}}">
+  <meta name="robots" content="{{robots}}">
+  <link rel="canonical" href="{{canonique}}">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Meranto Studio">
+  <meta property="og:title" content="{{titre}}">
+  <meta property="og:description" content="{{description}}">
+  <meta property="og:url" content="{{canonique}}">
+  <meta property="og:image" content="https://meranto-studio.com/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Logo Meranto Studio">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#F6F5F0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#050A14" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preload" href="assets/fonts/poppins-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/preferences.js"></script>
+  {{donnees}}
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu principal</a>
+{{entete}}
+  <main id="contenu">
+{{contenu}}
+  </main>
+{{pied}}
+  <script src="assets/js/config.js" defer></script>
+  <script src="assets/js/app.js" defer></script>
+  <script src="assets/js/mesure.js" defer></script>
+  {{scripts}}
+</body>
+</html>

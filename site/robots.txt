@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://meranto-studio.com/sitemap.xml
