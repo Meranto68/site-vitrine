@@ -578,7 +578,7 @@ p { text-wrap: pretty; }
 
 .comparatif thead th { padding-top: 1.4rem; vertical-align: bottom; }
 .comparatif thead th > span { display: block; }
-.comparatif thead .code { display: none; }
+
 
 .comparatif-nom {
   font-family: var(--font-display);
@@ -1039,9 +1039,8 @@ p { text-wrap: pretty; }
 
 .phases {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem;
-  align-items: start;
+  max-width: 62rem;
 }
 
 .phase {
@@ -1079,10 +1078,10 @@ p { text-wrap: pretty; }
 
 .jalons li {
   display: grid;
-  grid-template-columns: 4.2rem 1fr auto;
-  gap: .8rem;
-  align-items: start;
-  padding: 1rem 1.3rem;
+  grid-template-columns: 6rem 1fr auto;
+  gap: 1.2rem;
+  align-items: baseline;
+  padding: 1.05rem 1.5rem;
   border-bottom: 1px solid var(--line);
 }
 
@@ -1200,7 +1199,6 @@ p { text-wrap: pretty; }
 .vitrine .comparateur[data-ecran-actif="telephone"] { aspect-ratio: 9 / 17; max-width: 21rem; }
 
 @media (width <= 1100px) {
-  .phases { grid-template-columns: 1fr; }
   .actions-client { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -1216,6 +1214,72 @@ p { text-wrap: pretty; }
   .quand { grid-column: 1 / -1; }
   .vitrine .comparateur { aspect-ratio: 4 / 5; }
   .vitrine .comparateur[data-ecran-actif="telephone"] { aspect-ratio: 9 / 17; }
+}
+
+/* ---------- Offres : noms des formules en haut, en-tête du tableau qui reste visible ---------- */
+
+.formules-haut {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding-top: 1.5rem;
+}
+
+.formule-carte {
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+  padding: 1.4rem 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.formule-carte.mise { border-color: var(--live); box-shadow: inset 0 3px 0 var(--live); }
+.formule-carte strong { color: var(--ink); font-family: var(--font-display); font-size: 1.5rem; line-height: 1.2; }
+.formule-carte:hover { border-color: var(--accent-text); }
+
+.formule-lettre {
+  color: var(--accent-text);
+  font-size: .85rem;
+  font-weight: 700;
+}
+
+.formule-delai-court {
+  align-self: flex-start;
+  margin-top: .5rem;
+  padding: .1rem .6rem;
+  border-radius: 999px;
+  background: var(--live-soft);
+  color: var(--live);
+  font-size: .85rem;
+  font-weight: 700;
+}
+
+.titre-comparatif { margin-bottom: 1.2rem; }
+
+/* Sur grand écran, l'en-tête du tableau (noms des formules) reste visible pendant le défilement. */
+@media (width > 700px) {
+  .comparatif-cadre { overflow: visible; }
+
+  .comparatif thead th,
+  .comparatif thead td {
+    position: sticky;
+    top: 4.5rem;
+    z-index: 2;
+    background: var(--surface);
+    border-bottom: 2px solid var(--line);
+  }
+
+  .comparatif thead th.mise { background: color-mix(in srgb, var(--live) 6%, var(--surface)); }
+  .comparatif thead td:first-child { border-top-left-radius: var(--radius-md); }
+  .comparatif thead th:last-child { border-top-right-radius: var(--radius-md); }
+}
+
+@media (width <= 700px) {
+  .formules-haut { grid-template-columns: 1fr; }
 }
 
 /* ---------- Préférences d'affichage ---------- */
