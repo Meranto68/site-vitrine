@@ -1,0 +1,119 @@
+/* Meranto Studio · charte graphique (couleurs, polices, rayons). Palette pensée pour viser WCAG 2.2 AA.
+   Le dégradé de marque est décoratif : jamais pour du petit texte. */
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("../fonts/space-grotesk-latin-500-normal.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("../fonts/space-grotesk-latin-700-normal.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Inter;
+  src: url("../fonts/inter-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Inter;
+  src: url("../fonts/inter-latin-700-normal.woff2") format("woff2");
+  font-weight: 600 800;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+  --font-body: Inter, "Segoe UI", Arial, sans-serif;
+  --font-display: "Space Grotesk", Inter, "Segoe UI", Arial, sans-serif;
+  --font-code: "Space Grotesk", ui-monospace, monospace;
+  --radius-sm: .65rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --content: 74rem;
+  --brand-blue: #1658E8;
+  --brand-cyan: #12A8F4;
+  --brand-teal: #19D2C2;
+  --brand-violet: #8758E8;
+  --gradient: linear-gradient(120deg, var(--brand-blue), var(--brand-cyan) 34%, var(--brand-teal) 68%, var(--brand-violet));
+  --ink: #172033;
+  --muted: #47536A;
+  --paper: #F6F5F0;
+  --surface: #FFFFFF;
+  --surface-soft: #ECEFF4;
+  --border: #AAB4C3;
+  --line: #D5DAE2;
+  --action: #0759A6;
+  --action-text: #FFFFFF;
+  --accent-ink: #07202A;
+  --accent-text: #0759A6;
+  --live: #0A7D73;
+  --live-soft: #DDF5F2;
+  --warn: #8A4B00;
+  --warn-soft: #FCEFD9;
+  --error: #B42318;
+  --focus: #0759A6;
+  --shadow: 0 18px 50px rgb(17 28 50 / 10%);
+  --user-scale: 1;
+  --user-leading: 1.65;
+  --user-letter-spacing: 0;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ink: #F7F9FC;
+  --muted: #C5D0E0;
+  --paper: #111827;
+  --surface: #182338;
+  --surface-soft: #202D43;
+  --border: #61718A;
+  --line: #2C3A52;
+  --action: #21D3C5;
+  --action-text: #071426;
+  --accent-ink: #071426;
+  --accent-text: #5FE3D8;
+  --live: #4FE3D5;
+  --live-soft: #0F3438;
+  --warn: #F5B865;
+  --warn-soft: #3A2A12;
+  --error: #FF8A80;
+  --focus: #7CCBFF;
+  --shadow: 0 18px 50px rgb(0 0 0 / 28%);
+}
+
+:root[data-contrast="high"] {
+  --paper: #FFFFFF;
+  --surface: #FFFFFF;
+  --surface-soft: #F1F1F1;
+  --ink: #000000;
+  --muted: #202020;
+  --border: #333333;
+  --line: #333333;
+  --action: #003A75;
+  --action-text: #FFFFFF;
+  --accent-text: #003A75;
+  --live: #005A52;
+  --focus: #000000;
+}
+
+:root[data-theme="dark"][data-contrast="high"] {
+  --paper: #000000;
+  --surface: #000000;
+  --surface-soft: #141414;
+  --ink: #FFFFFF;
+  --muted: #F1F1F1;
+  --border: #E0E0E0;
+  --line: #E0E0E0;
+  --action: #FFFFFF;
+  --action-text: #000000;
+  --accent-text: #FFFFFF;
+  --live: #7FFFF4;
+  --focus: #FFFF00;
+}

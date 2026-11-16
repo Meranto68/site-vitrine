@@ -1,9 +1,28 @@
 # Site vitrine Meranto Studio
 
-Cette version statique est autonome : le dossier `site/` contient le HTML, les styles, le JavaScript et ses propres copies des logos dans `site/assets/logos/`.
+Site statique (HTML, CSS, JavaScript, sans framework ni dépendance) pour **meranto-studio.com**.
+Parti pris graphique : le site se lit comme le **suivi d'une commande** (bande de statut, cartes de suivi, fil qui relie les sections).
 
-Pour la prévisualiser, ouvrez `index.html` avec un navigateur. Pour publier cette base, téléversez **tout le contenu du dossier `site/`** vers la racine de l'hébergement, puis connectez le formulaire et remplacez les contenus provisoires.
+## Organisation
+- `src/pages/` : le contenu de chaque page (un bloc `<!--meta {...} -->` en tête : titre, description, lien actif du menu).
+- `src/partials/` : en-tête et pied de page communs. `src/gabarit.html` : squelette commun.
+- `site/` : **le site prêt à publier** (pages assemblées, styles, scripts, polices, images, `.htaccess`, `sitemap.xml`, `robots.txt`).
+- `outils/assembler.mjs` : assemble `src/` vers `site/`.
 
-Le site suit le thème système lors de la première visite, puis le choix clair/sombre de l'utilisateur est conservé localement. Le panneau Accessibilité permet d'agrandir le texte jusqu'à 200 %, activer un contraste renforcé, augmenter les espacements et réduire les animations.
+## Modifier puis publier
+1. Modifier une page dans `src/pages/` (ou le style dans `site/assets/css/`).
+2. `npm run construire` (ou `node outils/assembler.mjs`) : régénère les pages de `site/`.
+3. Aperçu local : `npm run apercu` puis ouvrir http://localhost:8000.
+4. Publication chez OVH : envoyer **le contenu du dossier `site/`** (y compris le fichier caché `.htaccess`) à la racine de l'hébergement (dossier `www`), par FTP ou SFTP.
 
-Le formulaire de contact, les pages légales, les coordonnées et les réalisations sont volontairement des emplacements à compléter : ne pas publier la maquette sans ces éléments.
+## Formulaire de contact
+Il envoie la demande à l'application Meranto (fonction `contactSite`) : un dossier est créé et l'accusé de réception attend votre validation dans « À valider ».
+- Après le déploiement de l'application, renseigner son adresse dans `site/assets/js/contact.js` (`ADRESSE_REELLE`).
+- Tant qu'elle est vide, le formulaire ouvre un e-mail prérempli vers contact@meranto-studio.com.
+- En local (`localhost`), il utilise les émulateurs de l'application.
+
+## Avant publication
+- Compléter les éléments surlignés « À COMPLÉTER » des pages Mentions légales et Confidentialité, puis les faire relire (À VALIDER PAR UN PROFESSIONNEL).
+- Vérifier que l'accord écrit de la Clinique Maison Bleue est archivé (page Exemple).
+
+Polices Space Grotesk et Inter : SIL Open Font License 1.1 (licences dans `site/assets/fonts/`).

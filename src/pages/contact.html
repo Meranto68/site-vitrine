@@ -1,0 +1,84 @@
+<!--meta {"titre": "Demander un devis · Meranto Studio", "description": "Décrivez votre clinique et votre site actuel en deux minutes. Réponse écrite sous 24 heures ouvrées, devis sous 48 heures ouvrées.", "nav": "contact", "scripts": ["contact.js"]} -->
+    <section class="page-tete container" aria-labelledby="titrePage">
+      <p class="etiquette"><span class="pastille-statut vivant">Ouvert</span> Demande de devis</p>
+      <h1 id="titrePage">Deux minutes, et votre suivi démarre.</h1>
+      <p class="hero-lead">Pas d'appel, pas de rendez-vous : vous décrivez votre besoin ici, nous vous répondons par écrit.</p>
+    </section>
+
+    <section class="section container contact-grille" aria-label="Formulaire de demande">
+      <form class="formulaire" id="formulaireContact" novalidate>
+        <div class="champ">
+          <label for="nomClinique">Nom de la clinique <span class="requis">obligatoire</span></label>
+          <input id="nomClinique" name="nom_clinique" type="text" autocomplete="organization" required maxlength="200" aria-describedby="erreur-nomClinique">
+          <p class="champ-erreur" id="erreur-nomClinique" hidden></p>
+        </div>
+        <div class="champ">
+          <label for="ville">Ville <span class="requis">obligatoire</span></label>
+          <input id="ville" name="ville" type="text" autocomplete="address-level2" required maxlength="100" aria-describedby="erreur-ville">
+          <p class="champ-erreur" id="erreur-ville" hidden></p>
+        </div>
+        <div class="champ">
+          <label for="email">Votre adresse e-mail <span class="requis">obligatoire</span></label>
+          <input id="email" name="email" type="email" autocomplete="email" required maxlength="320" aria-describedby="aide-email erreur-email">
+          <p class="champ-aide" id="aide-email">Nous ne répondons qu'à cette adresse. Jamais d'appel.</p>
+          <p class="champ-erreur" id="erreur-email" hidden></p>
+        </div>
+        <div class="champ">
+          <label for="site">Adresse de votre site actuel</label>
+          <input id="site" name="site" type="url" inputmode="url" placeholder="https://" maxlength="2000" aria-describedby="aide-site erreur-site">
+          <p class="champ-aide" id="aide-site">Si vous n'en avez pas encore, laissez vide.</p>
+          <p class="champ-erreur" id="erreur-site" hidden></p>
+        </div>
+        <fieldset class="champ champ-large">
+          <legend>Formule qui vous intéresse</legend>
+          <div class="choix">
+            <label><input type="radio" name="formule" value="ne sait pas" checked> Je ne sais pas encore</label>
+            <label><input type="radio" name="formule" value="A · Rafraîchissement"> A · Rafraîchissement</label>
+            <label><input type="radio" name="formule" value="B · Refonte complète"> B · Refonte complète</label>
+          </div>
+        </fieldset>
+        <div class="champ champ-large">
+          <label for="message">Votre message <span class="requis">obligatoire</span></label>
+          <textarea id="message" name="message" rows="6" required minlength="10" maxlength="3000" aria-describedby="aide-message erreur-message" placeholder="Ce qui ne vous convient plus, ce que vous aimeriez mettre en avant, une date souhaitée…"></textarea>
+          <p class="champ-aide" id="aide-message">10 caractères au moins.</p>
+          <p class="champ-erreur" id="erreur-message" hidden></p>
+        </div>
+        <div class="champ-piege" aria-hidden="true">
+          <label for="siteWeb">Ne pas remplir ce champ</label>
+          <input id="siteWeb" name="piege" type="text" tabindex="-1" autocomplete="off">
+        </div>
+        <div class="champ champ-large">
+          <label class="check-control consentement"><input id="consentement" name="consentement" type="checkbox" required aria-describedby="erreur-consentement"> <span>J'accepte que Meranto Studio utilise ces informations pour répondre à ma demande et préparer un devis. <a href="confidentialite.html">En savoir plus</a></span></label>
+          <p class="champ-erreur" id="erreur-consentement" hidden></p>
+        </div>
+        <div class="champ-large formulaire-actions">
+          <button class="button button-primary" type="submit" id="envoyer">Envoyer ma demande <span aria-hidden="true">→</span></button>
+          <p class="champ-aide">Vous pouvez aussi écrire directement à <a href="mailto:contact@meranto-studio.com">contact@meranto-studio.com</a>.</p>
+        </div>
+        <div class="formulaire-retour" id="retour" role="status" aria-live="polite" tabindex="-1" hidden></div>
+      </form>
+
+      <aside class="carte-suivi contact-suivi" aria-labelledby="ensuiteTitre">
+        <div class="carte-suivi-tete">
+          <div>
+            <p class="code">SUIVI DE VOTRE DEMANDE</p>
+            <p class="carte-suivi-titre" id="ensuiteTitre">Ce qui se passe ensuite</p>
+          </div>
+          <span class="pastille-statut" id="statutDemande">À envoyer</span>
+        </div>
+        <ol class="suivi" id="suiviDemande">
+          <li class="courant" data-etape="envoi"><span class="suivi-quand" id="heureEnvoi">Maintenant</span><span class="suivi-quoi"><strong>Vous envoyez votre demande</strong>Un accusé de réception suit par e-mail</span></li>
+          <li data-etape="reponse"><span class="suivi-quand">≤ 24 h</span><span class="suivi-quoi"><strong>Réponse écrite</strong>Une personne lit votre demande, questions éventuelles</span></li>
+          <li data-etape="devis"><span class="suivi-quand">≤ 48 h</span><span class="suivi-quoi"><strong>Devis détaillé</strong>À relire et signer en ligne</span></li>
+          <li data-etape="creation"><span class="suivi-quand">5 à 10 j</span><span class="suivi-quoi"><strong>Création de votre site</strong>Jours ouvrés, après l'acompte et la fiche</span></li>
+        </ol>
+        <p class="carte-suivi-pied">Heures et jours ouvrés, du lundi au vendredi.</p>
+      </aside>
+    </section>
+
+    <section class="section container" aria-labelledby="donneesTitre">
+      <div class="encadre-info">
+        <h2 id="donneesTitre">Vos informations</h2>
+        <p>Les informations de ce formulaire servent uniquement à répondre à votre demande et à préparer votre devis. Elles ne sont ni vendues ni utilisées pour d'autres envois. Vous pouvez demander à les consulter, les corriger ou les effacer en écrivant à <a href="mailto:contact@meranto-studio.com">contact@meranto-studio.com</a>. Détails : <a href="confidentialite.html">politique de confidentialité</a>.</p>
+      </div>
+    </section>

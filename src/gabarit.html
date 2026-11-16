@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fr" data-theme="dark" data-contrast="normal">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {{base}}
+  <title>{{titre}}</title>
+  <meta name="description" content="{{description}}">
+  <meta name="robots" content="{{robots}}">
+  <link rel="canonical" href="{{canonique}}">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Meranto Studio">
+  <meta property="og:title" content="{{titre}}">
+  <meta property="og:description" content="{{description}}">
+  <meta property="og:url" content="{{canonique}}">
+  <meta name="theme-color" content="#111827">
+  <link rel="icon" href="assets/logos/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/logos/favicon.png" type="image/png">
+  <link rel="preload" href="assets/fonts/space-grotesk-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/preferences.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu principal</a>
+{{entete}}
+  <main id="contenu">
+{{contenu}}
+  </main>
+{{pied}}
+  <script src="assets/js/app.js" defer></script>
+  {{scripts}}
+</body>
+</html>
