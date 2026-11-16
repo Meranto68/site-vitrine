@@ -24,12 +24,6 @@
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu principal</a>
-  <div class="statut-bande" role="note">
-    <div class="container statut-inner">
-      <span class="pouls" aria-hidden="true"></span>
-      <span><strong>Agence 100 % e-mail</strong><span class="sep" aria-hidden="true">·</span>réponse sous 24 h ouvrées<span class="sep masque-mobile" aria-hidden="true">·</span><span class="masque-mobile">aucun appel, aucun rendez-vous</span></span>
-    </div>
-  </div>
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="./" aria-label="Meranto Studio, accueil">
@@ -42,7 +36,7 @@
       <nav class="main-nav" id="menuPrincipal" aria-label="Navigation principale">
         <a href="offres.html" data-nav="offres">Offres</a>
         <a href="methode.html" data-nav="methode" aria-current="page">Méthode</a>
-        <a href="exemple.html" data-nav="exemple">Exemple</a>
+        <a href="exemple.html" data-nav="exemple">Réalisation</a>
         <a href="faq.html" data-nav="faq">Questions</a>
         <a href="contact.html" class="nav-cta" data-nav="contact">Demander un devis</a>
       </nav>
@@ -51,9 +45,8 @@
           <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
           <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.7 8.7 0 1 0 20.5 14.2Z"/></svg>
         </button>
-        <button class="access-button" id="accessToggle" type="button" aria-expanded="false" aria-controls="accessPanel">
+        <button class="icon-button" id="accessToggle" type="button" aria-expanded="false" aria-controls="accessPanel" aria-label="Options d'accessibilité" title="Accessibilité">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="4.5" r="1.8"/><path d="M5 8.5c2.3.7 4.6 1 7 1s4.7-.3 7-1M12 9.5v5m0 0-3 6m3-6 3 6"/></svg>
-          <span class="access-libelle">Accessibilité</span>
         </button>
       </div>
     </div>
@@ -72,68 +65,65 @@
           <label class="check-control"><input id="highContrast" type="checkbox"> Contraste renforcé</label>
           <label class="check-control"><input id="spaciousText" type="checkbox"> Espacement du texte</label>
           <label class="check-control"><input id="reduceMotion" type="checkbox"> Réduire les animations</label>
-          <button type="button" class="text-button" id="resetAccess">Réinitialiser l'affichage</button>
+          <button type="button" class="text-button" id="resetAccess">Réinitialiser</button>
         </div>
-        <p class="access-note">Ces préférences restent sur cet appareil uniquement. Le zoom du navigateur reste disponible.</p>
+        <p class="access-note">Ces préférences restent sur cet appareil uniquement.</p>
       </div>
     </section>
   </header>
 
   <main id="contenu">
 <section class="page-tete container" aria-labelledby="titrePage">
-      <p class="etiquette"><span class="code">MÉTHODE</span> Sept étapes, toutes par e-mail</p>
-      <h1 id="titrePage">Qui fait quoi, et quand.</h1>
-      <p class="hero-lead">Pour chaque étape : ce que vous avez à faire (souvent presque rien), ce que nous faisons, et le délai. Vous recevez un e-mail à chaque passage.</p>
+      <p class="surtitre">Méthode</p>
+      <h1 id="titrePage">Comment ça se passe</h1>
+      <p class="hero-lead">Sept étapes, toutes par e-mail. Pour chacune : ce que vous faites (souvent presque rien), ce que nous faisons, et le délai.</p>
     </section>
 
     <section class="section container" aria-labelledby="etapesTitre">
       <h2 id="etapesTitre" class="visually-hidden">Les étapes</h2>
-      <div class="couloirs-tete" aria-hidden="true">
-        <span></span><span class="code">VOUS</span><span class="code">NOUS</span>
-      </div>
-      <ol class="couloirs">
+      <ol class="etapes">
         <li>
-          <div class="couloir-etape"><span class="code">01</span><h3>Demande</h3><span class="delai">2 minutes</span></div>
-          <div class="couloir vous"><span class="couloir-libelle">Vous</span>Vous remplissez le formulaire : nom de la clinique, ville, site actuel, ce que vous attendez.</div>
-          <div class="couloir nous"><span class="couloir-libelle">Nous</span>Une personne lit votre demande et vous répond par écrit <strong>sous 24 heures ouvrées</strong>.</div>
+          <div class="etape-tete"><h3>Demande</h3><span class="delai">2 minutes</span></div>
+          <p><span class="qui">Vous</span>Vous remplissez le formulaire : votre activité, votre ville, votre site actuel, ce que vous attendez.</p>
+          <p><span class="qui nous">Nous</span>Une personne lit votre demande et vous répond par écrit sous 24 heures ouvrées.</p>
         </li>
         <li>
-          <div class="couloir-etape"><span class="code">02</span><h3>Devis</h3><span class="delai">≤ 48 h ouvrées</span></div>
-          <div class="couloir vous"><span class="couloir-libelle">Vous</span>Vous lisez le devis et le signez en ligne, depuis votre ordinateur ou votre téléphone.</div>
-          <div class="couloir nous"><span class="couloir-libelle">Nous</span>Nous préparons un devis détaillé : formule, pages, options, délai, conditions.</div>
+          <div class="etape-tete"><h3>Devis</h3><span class="delai">sous 48 h ouvrées</span></div>
+          <p><span class="qui">Vous</span>Vous lisez le devis et le signez en ligne, depuis votre ordinateur ou votre téléphone.</p>
+          <p><span class="qui nous">Nous</span>Nous préparons un devis détaillé : formule, pages, options, délai, conditions.</p>
         </li>
         <li>
-          <div class="couloir-etape"><span class="code">03</span><h3>Démarrage</h3><span class="delai">à votre rythme</span></div>
-          <div class="couloir vous"><span class="couloir-libelle">Vous</span>Vous réglez l'acompte de 30 % (carte ou virement) et remplissez la fiche de démarrage en ligne : informations, photos, accès à votre hébergement. Vous pouvez la compléter en plusieurs fois.</div>
-          <div class="couloir nous"><span class="couloir-libelle">Nous</span>Dès que l'acompte et la fiche complète sont reçus, le compteur démarre.</div>
+          <div class="etape-tete"><h3>Démarrage</h3><span class="delai">à votre rythme</span></div>
+          <p><span class="qui">Vous</span>Vous réglez l'acompte de 30 % (carte ou virement) et remplissez la fiche de démarrage en ligne : informations, photos, accès à votre hébergement. Vous pouvez la compléter en plusieurs fois.</p>
+          <p><span class="qui nous">Nous</span>Dès que l'acompte et la fiche complète sont reçus, le délai de création commence.</p>
         </li>
         <li>
-          <div class="couloir-etape"><span class="code">04</span><h3>Création</h3><span class="delai">5 ou 10 jours ouvrés</span></div>
-          <div class="couloir vous"><span class="couloir-libelle">Vous</span>Rien à faire. Vous continuez à soigner vos patients.</div>
-          <div class="couloir nous"><span class="couloir-libelle">Nous</span>Direction artistique propre à votre clinique, textes, mise en page, puis contrôles : lisibilité, accessibilité, liens, mentions légales, ressemblance avec nos autres sites.</div>
+          <div class="etape-tete"><h3>Création</h3><span class="delai">5 ou 10 jours ouvrés</span></div>
+          <p><span class="qui">Vous</span>Rien à faire : vous continuez votre activité.</p>
+          <p><span class="qui nous">Nous</span>Direction artistique propre à votre activité, textes, mise en page, puis contrôles : lisibilité, accessibilité, liens, mentions légales.</p>
         </li>
         <li>
-          <div class="couloir-etape"><span class="code">05</span><h3>Validation</h3><span class="delai">2 tours de retouches</span></div>
-          <div class="couloir vous"><span class="couloir-libelle">Vous</span>Vous découvrez votre site sur un lien privé. Vous demandez des retouches par e-mail, puis vous donnez votre accord en un clic.</div>
-          <div class="couloir nous"><span class="couloir-libelle">Nous</span>Nous appliquons vos retouches et figeons la version que vous avez approuvée.</div>
+          <div class="etape-tete"><h3>Validation</h3><span class="delai">2 tours de retouches</span></div>
+          <p><span class="qui">Vous</span>Vous découvrez votre site sur un lien privé, demandez des retouches par e-mail, puis donnez votre accord en un clic.</p>
+          <p><span class="qui nous">Nous</span>Nous appliquons vos retouches et gardons la version que vous avez approuvée.</p>
         </li>
         <li>
-          <div class="couloir-etape"><span class="code">06</span><h3>Mise en ligne</h3><span class="delai">sur votre domaine</span></div>
-          <div class="couloir vous"><span class="couloir-libelle">Vous</span>Vous réglez le solde de 70 %.</div>
-          <div class="couloir nous"><span class="couloir-libelle">Nous</span>Nous sauvegardons votre ancien site, mettons le nouveau en ligne chez votre hébergeur et vérifions qu'il s'affiche. Un retour arrière reste possible.</div>
+          <div class="etape-tete"><h3>Mise en ligne</h3><span class="delai">sur votre domaine</span></div>
+          <p><span class="qui">Vous</span>Vous réglez le solde de 70 %.</p>
+          <p><span class="qui nous">Nous</span>Nous sauvegardons votre ancien site, mettons le nouveau en ligne chez votre hébergeur et vérifions qu'il s'affiche. Un retour arrière reste possible.</p>
         </li>
         <li>
-          <div class="couloir-etape"><span class="code">07</span><h3>Après</h3><span class="delai">en option</span></div>
-          <div class="couloir vous"><span class="couloir-libelle">Vous</span>Vous nous écrivez quand quelque chose change : horaires, équipe, actualité.</div>
-          <div class="couloir nous"><span class="couloir-libelle">Nous</span>Avec le suivi mensuel, nous faisons les petites modifications et gardons des sauvegardes.</div>
+          <div class="etape-tete"><h3>Après</h3><span class="delai">en option</span></div>
+          <p><span class="qui">Vous</span>Vous nous écrivez quand quelque chose change : horaires, équipe, actualité.</p>
+          <p><span class="qui nous">Nous</span>Avec le suivi mensuel, nous faisons les petites modifications et gardons des sauvegardes.</p>
         </li>
       </ol>
     </section>
 
-    <section class="section container fil" aria-labelledby="garantiesTitre">
+    <section class="section container" aria-labelledby="garantiesTitre">
       <div class="section-heading">
-        <p class="etiquette"><span class="code">✓</span> Nos règles</p>
-        <h2 id="garantiesTitre">Ce que nous ne faisons jamais.</h2>
+        <p class="surtitre">Nos règles</p>
+        <h2 id="garantiesTitre">Ce que nous ne faisons jamais</h2>
       </div>
       <ul class="regles">
         <li><strong>Commencer avant votre signature.</strong> Aucun travail ne démarre sans devis signé, acompte et fiche complète.</li>
@@ -147,8 +137,8 @@
 
     <section class="appel" aria-labelledby="appelTitre">
       <div class="container appel-inner">
-        <h2 id="appelTitre">On commence par l'étape 01 ?</h2>
-        <p>Deux minutes, et votre suivi démarre.</p>
+        <h2 id="appelTitre">Prêt à commencer ?</h2>
+        <p>Deux minutes pour décrire votre besoin, réponse écrite sous 24 heures ouvrées.</p>
         <a class="button button-primary" href="contact.html">Lancer ma demande <span aria-hidden="true">→</span></a>
       </div>
     </section>
@@ -159,14 +149,14 @@
       <div class="footer-marque">
         <img src="assets/logos/meranto-horizontal-dark.svg" class="logo logo-dark" alt="Meranto Studio" width="170" height="43">
         <img src="assets/logos/meranto-horizontal-light.svg" class="logo logo-light" alt="Meranto Studio" width="170" height="43">
-        <p>Sites web pour cliniques vétérinaires. Tout se fait par e-mail, chaque étape est suivie.</p>
+        <p>Sites web pour les professionnels et les petites entreprises. Tout se fait par e-mail.</p>
       </div>
       <nav aria-label="Agence">
         <h2 class="footer-titre">Agence</h2>
         <ul>
           <li><a href="offres.html">Offres</a></li>
           <li><a href="methode.html">Méthode</a></li>
-          <li><a href="exemple.html">Exemple avant / après</a></li>
+          <li><a href="exemple.html">Réalisation</a></li>
           <li><a href="faq.html">Questions fréquentes</a></li>
         </ul>
       </nav>

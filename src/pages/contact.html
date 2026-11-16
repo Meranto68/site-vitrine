@@ -1,16 +1,21 @@
-<!--meta {"titre": "Demander un devis · Meranto Studio", "description": "Décrivez votre clinique et votre site actuel en deux minutes. Réponse écrite sous 24 heures ouvrées, devis sous 48 heures ouvrées.", "nav": "contact", "scripts": ["contact.js"]} -->
+<!--meta {"titre": "Demander un devis · Meranto Studio", "description": "Décrivez votre activité et votre site actuel en deux minutes. Réponse écrite sous 24 heures ouvrées, devis sous 48 heures ouvrées.", "nav": "contact", "scripts": ["contact.js"]} -->
     <section class="page-tete container" aria-labelledby="titrePage">
-      <p class="etiquette"><span class="pastille-statut vivant">Ouvert</span> Demande de devis</p>
-      <h1 id="titrePage">Deux minutes, et votre suivi démarre.</h1>
-      <p class="hero-lead">Pas d'appel, pas de rendez-vous : vous décrivez votre besoin ici, nous vous répondons par écrit.</p>
+      <p class="surtitre">Contact</p>
+      <h1 id="titrePage">Demander un devis</h1>
+      <p class="hero-lead">Décrivez votre besoin en deux minutes. Nous vous répondons par écrit, sans appel ni rendez-vous.</p>
     </section>
 
     <section class="section container contact-grille" aria-label="Formulaire de demande">
       <form class="formulaire" id="formulaireContact" novalidate>
         <div class="champ">
-          <label for="nomClinique">Nom de la clinique <span class="requis">obligatoire</span></label>
+          <label for="nomClinique">Nom de votre entreprise <span class="requis">obligatoire</span></label>
           <input id="nomClinique" name="nom_clinique" type="text" autocomplete="organization" required maxlength="200" aria-describedby="erreur-nomClinique">
           <p class="champ-erreur" id="erreur-nomClinique" hidden></p>
+        </div>
+        <div class="champ">
+          <label for="activite">Votre activité <span class="requis">obligatoire</span></label>
+          <input id="activite" name="activite" type="text" required maxlength="100" placeholder="Ex. clinique vétérinaire, boulangerie, plombier…" aria-describedby="erreur-activite">
+          <p class="champ-erreur" id="erreur-activite" hidden></p>
         </div>
         <div class="champ">
           <label for="ville">Ville <span class="requis">obligatoire</span></label>
@@ -53,26 +58,18 @@
         </div>
         <div class="champ-large formulaire-actions">
           <button class="button button-primary" type="submit" id="envoyer">Envoyer ma demande <span aria-hidden="true">→</span></button>
-          <p class="champ-aide">Vous pouvez aussi écrire directement à <a href="mailto:contact@meranto-studio.com">contact@meranto-studio.com</a>.</p>
         </div>
         <div class="formulaire-retour" id="retour" role="status" aria-live="polite" tabindex="-1" hidden></div>
       </form>
 
-      <aside class="carte-suivi contact-suivi" aria-labelledby="ensuiteTitre">
-        <div class="carte-suivi-tete">
-          <div>
-            <p class="code">SUIVI DE VOTRE DEMANDE</p>
-            <p class="carte-suivi-titre" id="ensuiteTitre">Ce qui se passe ensuite</p>
-          </div>
-          <span class="pastille-statut" id="statutDemande">À envoyer</span>
-        </div>
-        <ol class="suivi" id="suiviDemande">
-          <li class="courant" data-etape="envoi"><span class="suivi-quand" id="heureEnvoi">Maintenant</span><span class="suivi-quoi"><strong>Vous envoyez votre demande</strong>Un accusé de réception suit par e-mail</span></li>
-          <li data-etape="reponse"><span class="suivi-quand">≤ 24 h</span><span class="suivi-quoi"><strong>Réponse écrite</strong>Une personne lit votre demande, questions éventuelles</span></li>
-          <li data-etape="devis"><span class="suivi-quand">≤ 48 h</span><span class="suivi-quoi"><strong>Devis détaillé</strong>À relire et signer en ligne</span></li>
-          <li data-etape="creation"><span class="suivi-quand">5 à 10 j</span><span class="suivi-quoi"><strong>Création de votre site</strong>Jours ouvrés, après l'acompte et la fiche</span></li>
+      <aside class="ensuite" aria-labelledby="ensuiteTitre">
+        <h2 id="ensuiteTitre">Et ensuite ?</h2>
+        <ol class="ensuite-etapes">
+          <li><strong>Accusé de réception</strong><span>Par e-mail, pour confirmer que nous avons bien votre demande.</span></li>
+          <li><strong>Réponse sous 24 h ouvrées</strong><span>Une personne lit votre demande et vous répond, avec des questions si besoin.</span></li>
+          <li><strong>Devis sous 48 h ouvrées</strong><span>Détaillé, à relire et signer en ligne. Il ne vous engage à rien avant signature.</span></li>
         </ol>
-        <p class="carte-suivi-pied">Heures et jours ouvrés, du lundi au vendredi.</p>
+        <p class="ensuite-mail">Vous préférez écrire directement ?<br><a href="mailto:contact@meranto-studio.com">contact@meranto-studio.com</a></p>
       </aside>
     </section>
 

@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <title>Demander un devis · Meranto Studio</title>
-  <meta name="description" content="Décrivez votre clinique et votre site actuel en deux minutes. Réponse écrite sous 24 heures ouvrées, devis sous 48 heures ouvrées.">
+  <meta name="description" content="Décrivez votre activité et votre site actuel en deux minutes. Réponse écrite sous 24 heures ouvrées, devis sous 48 heures ouvrées.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://meranto-studio.com/contact.html">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Meranto Studio">
   <meta property="og:title" content="Demander un devis · Meranto Studio">
-  <meta property="og:description" content="Décrivez votre clinique et votre site actuel en deux minutes. Réponse écrite sous 24 heures ouvrées, devis sous 48 heures ouvrées.">
+  <meta property="og:description" content="Décrivez votre activité et votre site actuel en deux minutes. Réponse écrite sous 24 heures ouvrées, devis sous 48 heures ouvrées.">
   <meta property="og:url" content="https://meranto-studio.com/contact.html">
   <meta name="theme-color" content="#111827">
   <link rel="icon" href="assets/logos/favicon.svg" type="image/svg+xml">
@@ -24,12 +24,6 @@
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu principal</a>
-  <div class="statut-bande" role="note">
-    <div class="container statut-inner">
-      <span class="pouls" aria-hidden="true"></span>
-      <span><strong>Agence 100 % e-mail</strong><span class="sep" aria-hidden="true">·</span>réponse sous 24 h ouvrées<span class="sep masque-mobile" aria-hidden="true">·</span><span class="masque-mobile">aucun appel, aucun rendez-vous</span></span>
-    </div>
-  </div>
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="./" aria-label="Meranto Studio, accueil">
@@ -42,7 +36,7 @@
       <nav class="main-nav" id="menuPrincipal" aria-label="Navigation principale">
         <a href="offres.html" data-nav="offres">Offres</a>
         <a href="methode.html" data-nav="methode">Méthode</a>
-        <a href="exemple.html" data-nav="exemple">Exemple</a>
+        <a href="exemple.html" data-nav="exemple">Réalisation</a>
         <a href="faq.html" data-nav="faq">Questions</a>
         <a href="contact.html" class="nav-cta" data-nav="contact" aria-current="page">Demander un devis</a>
       </nav>
@@ -51,9 +45,8 @@
           <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
           <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.7 8.7 0 1 0 20.5 14.2Z"/></svg>
         </button>
-        <button class="access-button" id="accessToggle" type="button" aria-expanded="false" aria-controls="accessPanel">
+        <button class="icon-button" id="accessToggle" type="button" aria-expanded="false" aria-controls="accessPanel" aria-label="Options d'accessibilité" title="Accessibilité">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="4.5" r="1.8"/><path d="M5 8.5c2.3.7 4.6 1 7 1s4.7-.3 7-1M12 9.5v5m0 0-3 6m3-6 3 6"/></svg>
-          <span class="access-libelle">Accessibilité</span>
         </button>
       </div>
     </div>
@@ -72,26 +65,31 @@
           <label class="check-control"><input id="highContrast" type="checkbox"> Contraste renforcé</label>
           <label class="check-control"><input id="spaciousText" type="checkbox"> Espacement du texte</label>
           <label class="check-control"><input id="reduceMotion" type="checkbox"> Réduire les animations</label>
-          <button type="button" class="text-button" id="resetAccess">Réinitialiser l'affichage</button>
+          <button type="button" class="text-button" id="resetAccess">Réinitialiser</button>
         </div>
-        <p class="access-note">Ces préférences restent sur cet appareil uniquement. Le zoom du navigateur reste disponible.</p>
+        <p class="access-note">Ces préférences restent sur cet appareil uniquement.</p>
       </div>
     </section>
   </header>
 
   <main id="contenu">
 <section class="page-tete container" aria-labelledby="titrePage">
-      <p class="etiquette"><span class="pastille-statut vivant">Ouvert</span> Demande de devis</p>
-      <h1 id="titrePage">Deux minutes, et votre suivi démarre.</h1>
-      <p class="hero-lead">Pas d'appel, pas de rendez-vous : vous décrivez votre besoin ici, nous vous répondons par écrit.</p>
+      <p class="surtitre">Contact</p>
+      <h1 id="titrePage">Demander un devis</h1>
+      <p class="hero-lead">Décrivez votre besoin en deux minutes. Nous vous répondons par écrit, sans appel ni rendez-vous.</p>
     </section>
 
     <section class="section container contact-grille" aria-label="Formulaire de demande">
       <form class="formulaire" id="formulaireContact" novalidate>
         <div class="champ">
-          <label for="nomClinique">Nom de la clinique <span class="requis">obligatoire</span></label>
+          <label for="nomClinique">Nom de votre entreprise <span class="requis">obligatoire</span></label>
           <input id="nomClinique" name="nom_clinique" type="text" autocomplete="organization" required maxlength="200" aria-describedby="erreur-nomClinique">
           <p class="champ-erreur" id="erreur-nomClinique" hidden></p>
+        </div>
+        <div class="champ">
+          <label for="activite">Votre activité <span class="requis">obligatoire</span></label>
+          <input id="activite" name="activite" type="text" required maxlength="100" placeholder="Ex. clinique vétérinaire, boulangerie, plombier…" aria-describedby="erreur-activite">
+          <p class="champ-erreur" id="erreur-activite" hidden></p>
         </div>
         <div class="champ">
           <label for="ville">Ville <span class="requis">obligatoire</span></label>
@@ -134,26 +132,18 @@
         </div>
         <div class="champ-large formulaire-actions">
           <button class="button button-primary" type="submit" id="envoyer">Envoyer ma demande <span aria-hidden="true">→</span></button>
-          <p class="champ-aide">Vous pouvez aussi écrire directement à <a href="mailto:contact@meranto-studio.com">contact@meranto-studio.com</a>.</p>
         </div>
         <div class="formulaire-retour" id="retour" role="status" aria-live="polite" tabindex="-1" hidden></div>
       </form>
 
-      <aside class="carte-suivi contact-suivi" aria-labelledby="ensuiteTitre">
-        <div class="carte-suivi-tete">
-          <div>
-            <p class="code">SUIVI DE VOTRE DEMANDE</p>
-            <p class="carte-suivi-titre" id="ensuiteTitre">Ce qui se passe ensuite</p>
-          </div>
-          <span class="pastille-statut" id="statutDemande">À envoyer</span>
-        </div>
-        <ol class="suivi" id="suiviDemande">
-          <li class="courant" data-etape="envoi"><span class="suivi-quand" id="heureEnvoi">Maintenant</span><span class="suivi-quoi"><strong>Vous envoyez votre demande</strong>Un accusé de réception suit par e-mail</span></li>
-          <li data-etape="reponse"><span class="suivi-quand">≤ 24 h</span><span class="suivi-quoi"><strong>Réponse écrite</strong>Une personne lit votre demande, questions éventuelles</span></li>
-          <li data-etape="devis"><span class="suivi-quand">≤ 48 h</span><span class="suivi-quoi"><strong>Devis détaillé</strong>À relire et signer en ligne</span></li>
-          <li data-etape="creation"><span class="suivi-quand">5 à 10 j</span><span class="suivi-quoi"><strong>Création de votre site</strong>Jours ouvrés, après l'acompte et la fiche</span></li>
+      <aside class="ensuite" aria-labelledby="ensuiteTitre">
+        <h2 id="ensuiteTitre">Et ensuite ?</h2>
+        <ol class="ensuite-etapes">
+          <li><strong>Accusé de réception</strong><span>Par e-mail, pour confirmer que nous avons bien votre demande.</span></li>
+          <li><strong>Réponse sous 24 h ouvrées</strong><span>Une personne lit votre demande et vous répond, avec des questions si besoin.</span></li>
+          <li><strong>Devis sous 48 h ouvrées</strong><span>Détaillé, à relire et signer en ligne. Il ne vous engage à rien avant signature.</span></li>
         </ol>
-        <p class="carte-suivi-pied">Heures et jours ouvrés, du lundi au vendredi.</p>
+        <p class="ensuite-mail">Vous préférez écrire directement ?<br><a href="mailto:contact@meranto-studio.com">contact@meranto-studio.com</a></p>
       </aside>
     </section>
 
@@ -170,14 +160,14 @@
       <div class="footer-marque">
         <img src="assets/logos/meranto-horizontal-dark.svg" class="logo logo-dark" alt="Meranto Studio" width="170" height="43">
         <img src="assets/logos/meranto-horizontal-light.svg" class="logo logo-light" alt="Meranto Studio" width="170" height="43">
-        <p>Sites web pour cliniques vétérinaires. Tout se fait par e-mail, chaque étape est suivie.</p>
+        <p>Sites web pour les professionnels et les petites entreprises. Tout se fait par e-mail.</p>
       </div>
       <nav aria-label="Agence">
         <h2 class="footer-titre">Agence</h2>
         <ul>
           <li><a href="offres.html">Offres</a></li>
           <li><a href="methode.html">Méthode</a></li>
-          <li><a href="exemple.html">Exemple avant / après</a></li>
+          <li><a href="exemple.html">Réalisation</a></li>
           <li><a href="faq.html">Questions fréquentes</a></li>
         </ul>
       </nav>

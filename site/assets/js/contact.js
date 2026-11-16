@@ -21,7 +21,8 @@
   }
 
   const champs = {
-    nomClinique: (v) => (v.trim().length >= 2 ? "" : "Indiquez le nom de la clinique."),
+    nomClinique: (v) => (v.trim().length >= 2 ? "" : "Indiquez le nom de votre entreprise."),
+    activite: (v) => (v.trim().length >= 2 ? "" : "Indiquez votre activité, par exemple « boulangerie »."),
     ville: (v) => (v.trim() ? "" : "Indiquez la ville."),
     email: (v) => (/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) ? "" : "Indiquez une adresse e-mail valide, par exemple nom@clinique.fr."),
     site: (v) => (!v.trim() || /^https?:\/\/[^\s.]+\.[^\s]+$/.test(v.trim()) ? "" : "Indiquez l'adresse complète, qui commence par https://"),
@@ -57,10 +58,6 @@
     });
   }
 
-  function heure() {
-    return new Intl.DateTimeFormat("fr-FR", { hour: "2-digit", minute: "2-digit" }).format(new Date());
-  }
-
   function montrer(ok, titre, texte) {
     retour.className = `formulaire-retour${ok ? "" : " erreur"}`;
     retour.innerHTML = "";
@@ -73,21 +70,11 @@
     retour.focus();
   }
 
-  function suiviEnvoye() {
-    const statut = document.getElementById("statutDemande");
-    statut.textContent = "Reçue";
-    statut.classList.add("vivant");
-    document.getElementById("heureEnvoi").textContent = heure();
-    const etapes = document.querySelectorAll("#suiviDemande li");
-    etapes[0].className = "fait";
-    etapes[0].querySelector("strong").textContent = "Demande reçue";
-    etapes[1].className = "courant";
-  }
-
   function donnees() {
     const f = new FormData(form);
     const choix = String(f.get("formule") || "ne sait pas");
-    const message = String(f.get("message")).trim();
+    const activite = String(f.get("activite") || "").trim();
+    const message = `[Activité : ${activite}]\n${String(f.get("message")).trim()}`;
     return {
       nom_clinique: String(f.get("nom_clinique")).trim(),
       ville: String(f.get("ville")).trim(),
@@ -106,7 +93,7 @@
     const d = donnees();
     if (!ADRESSE) {
       // Application pas encore branchée : e-mail prérempli.
-      const corps = `Clinique : ${d.nom_clinique} (${d.ville})\nSite : ${d.site || "aucun"}\n\n${d.message}`;
+      const corps = `Entreprise : ${d.nom_clinique} (${d.ville})\nSite : ${d.site || "aucun"}\n\n${d.message}`;
       location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(`Demande de devis : ${d.nom_clinique}`)}&body=${encodeURIComponent(corps)}`;
       montrer(true, "Votre messagerie s'ouvre.", `Envoyez le message prérempli à ${EMAIL} : nous vous répondons sous 24 heures ouvrées.`);
       return;
@@ -119,7 +106,6 @@
       if (r.ok) {
         form.querySelectorAll("input, textarea, button").forEach((el) => { el.disabled = true; });
         bouton.firstChild.textContent = "Demande envoyée ";
-        suiviEnvoye();
         montrer(true, "C'est envoyé.", j.message || "Nous vous répondons par e-mail sous 24 heures ouvrées.");
         return;
       }
