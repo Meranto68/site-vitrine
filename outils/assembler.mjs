@@ -11,6 +11,36 @@ const gabarit = lire("src/gabarit.html");
 const entete = lire("src/partials/entete.html");
 const pied = lire("src/partials/pied.html");
 
+const URL_LOGO = `${URL_SITE}/assets/logos/icone-512.png`;
+
+/** Données structurées (lues par les moteurs de recherche), au format JSON-LD. */
+function donneesStructurees(meta, contenu) {
+  const blocs = [];
+  if (meta.nav === "accueil") {
+    blocs.push({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "Meranto Studio",
+      url: `${URL_SITE}/`,
+      logo: URL_LOGO,
+      email: "contact@meranto-studio.com",
+      description: meta.description,
+      contactPoint: { "@type": "ContactPoint", contactType: "customer service", email: "contact@meranto-studio.com", availableLanguage: "French" },
+    });
+  }
+  if (meta.nav === "faq") {
+    // Questions et réponses tirées de la page elle-même : toujours identiques à ce qui est affiché.
+    const texte = (html) => html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+    const questions = [...contenu.matchAll(/<summary>([\s\S]*?)<\/summary>\s*<div>([\s\S]*?)<\/div>/g)].map((m) => ({
+      "@type": "Question",
+      name: texte(m[1]),
+      acceptedAnswer: { "@type": "Answer", text: texte(m[2]) },
+    }));
+    if (questions.length > 0) blocs.push({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: questions });
+  }
+  return blocs.map((b) => `<script type="application/ld+json">${JSON.stringify(b).replace(/</g, "\\u003c")}</script>`).join("\n  ");
+}
+
 const pages = [];
 for (const fichier of readdirSync(join(racine, "src/pages")).filter((f) => f.endsWith(".html")).sort()) {
   const brut = lire(`src/pages/${fichier}`);
@@ -26,6 +56,7 @@ for (const fichier of readdirSync(join(racine, "src/pages")).filter((f) => f.end
     .replaceAll("{{titre}}", meta.titre)
     .replaceAll("{{description}}", meta.description)
     .replaceAll("{{canonique}}", `${URL_SITE}/${chemin}`)
+    .replace("{{donnees}}", donneesStructurees(meta, contenu))
     .replace("{{base}}", meta.base ? `<base href="${meta.base}">` : "")
     .replaceAll("{{robots}}", meta.indexer === false ? "noindex, follow" : "index, follow")
     .replace("{{entete}}", enteteActif)

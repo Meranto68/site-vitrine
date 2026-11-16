@@ -30,6 +30,7 @@
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/styles.css">
   <script src="assets/js/preferences.js"></script>
+  
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu principal</a>
@@ -85,7 +86,7 @@
 <section class="page-tete container" aria-labelledby="titrePage">
       <p class="surtitre">Vos données</p>
       <h1 id="titrePage">Politique de confidentialité.</h1>
-      <p class="hero-lead">En bref : nous recevons seulement ce que vous écrivez dans le formulaire, pour vous répondre. Pas de cookie de suivi, pas de mesure d'audience.</p>
+      <p class="hero-lead">En bref : nous recevons ce que vous écrivez dans le formulaire, pour vous répondre, et nous comptons les visites de façon anonyme, sans cookie.</p>
     </section>
     <section class="section container prose">
       <p class="a-valider">Page à faire relire par un professionnel avant publication : base légale, durées de conservation et formulations (À VALIDER PAR UN PROFESSIONNEL).</p>
@@ -102,8 +103,12 @@
       <p>Meranto Studio uniquement. Les informations sont stockées dans notre application, hébergée par Google (Firebase) <span class="a-completer">[région et garanties à vérifier]</span>, et nos réponses passent par notre service d'envoi d'e-mails <span class="a-completer">[nom du service]</span>.</p>
       <h2>Vos droits</h2>
       <p>Vous pouvez demander à consulter, corriger ou effacer vos informations, ou vous opposer à leur utilisation, en écrivant à <a href="mailto:contact@meranto-studio.com">contact@meranto-studio.com</a>. Nous répondons par écrit. Vous pouvez aussi adresser une réclamation à la CNIL (cnil.fr).</p>
+      <h2 id="audience">Mesure d'audience</h2>
+      <p>Pour savoir quelles pages sont utiles, chaque page vue ajoute 1 à des compteurs du jour : la page consultée, le site d'où vous venez (seulement son nom de domaine, par exemple « google.fr »), une éventuelle campagne indiquée dans l'adresse, et le type d'écran (téléphone, tablette ou ordinateur). Aucun cookie, aucun identifiant, aucune adresse IP n'est conservé : il est impossible de savoir qui a visité le site. Les compteurs sont gardés dans notre application, hébergée par Google (Firebase).</p>
+      <p>Si votre navigateur indique que vous ne souhaitez pas être suivi (réglages « Do Not Track » ou « Global Privacy Control »), rien n'est compté.</p>
+      <p>Conformité de cette mesure sans consentement : <span class="a-completer">[à faire valider par un professionnel, au regard des recommandations de la CNIL sur la mesure d'audience]</span>.</p>
       <h2>Cookies et préférences</h2>
-      <p>Ce site ne dépose aucun cookie et ne mesure pas l'audience. Vos choix d'affichage (thème clair ou sombre, taille du texte, contraste) sont gardés uniquement dans votre navigateur, sur cet appareil.</p>
+      <p>Ce site ne dépose aucun cookie. Vos choix d'affichage (thème clair ou sombre, taille du texte, contraste) sont gardés uniquement dans votre navigateur, sur cet appareil.</p>
     </section>
 
   </main>
@@ -142,11 +147,13 @@
     </div>
     <div class="container footer-bas">
       <p>© 2026 Meranto Studio</p>
-      <p>Aucun cookie de suivi, aucune mesure d'audience.</p>
+      <p>Aucun cookie. Mesure d'audience anonyme, <a href="confidentialite.html#audience">en savoir plus</a>.</p>
     </div>
   </footer>
 
+  <script src="assets/js/config.js" defer></script>
   <script src="assets/js/app.js" defer></script>
+  <script src="assets/js/mesure.js" defer></script>
   
 </body>
 </html>

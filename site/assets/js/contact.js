@@ -1,11 +1,8 @@
 // Formulaire de contact : vérifications dans la page, puis envoi à l'application Meranto (dossier + accusé de réception à valider).
 // Si l'adresse de l'application n'est pas encore configurée, le formulaire ouvre un e-mail prérempli à la place.
 (() => {
-  // Adresse de la fonction « contactSite » de l'application, à renseigner après son déploiement
-  // (ex. https://europe-west1-PROJET.cloudfunctions.net/contactSite). En local : les émulateurs.
-  const ADRESSE_REELLE = "";
-  const local = ["localhost", "127.0.0.1"].includes(location.hostname);
-  const ADRESSE = local ? "http://127.0.0.1:5001/demo-meranto/europe-west1/contactSite" : ADRESSE_REELLE;
+  // Adresse de l'application : voir assets/js/config.js.
+  const ADRESSE = window.MERANTO_API ? `${window.MERANTO_API}/contactSite` : "";
   const EMAIL = "contact@meranto-studio.com";
 
   const form = document.getElementById("formulaireContact");
