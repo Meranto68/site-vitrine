@@ -19,14 +19,15 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Logo Meranto Studio">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#F6F5F0" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#050A14" media="(prefers-color-scheme: dark)">
-  <link rel="icon" href="/favicon.ico" sizes="48x48">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="preload" href="assets/fonts/poppins-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <meta name="theme-color" content="#F3F6FC" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#071430" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preload" href="assets/fonts/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/figtree-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/styles.css">
   <script src="assets/js/preferences.js"></script>
@@ -84,7 +85,7 @@
 
   <main id="contenu">
 <section class="page-tete container" aria-labelledby="titrePage">
-      <p class="surtitre">Contact</p>
+      <p class="fil"><a href="./">Accueil</a> <span aria-hidden="true">/</span> Contact</p>
       <h1 id="titrePage">Demander un devis</h1>
       <p class="hero-lead">Décrivez votre besoin en deux minutes. Nous vous répondons par écrit, sans appel ni rendez-vous.</p>
     </section>
@@ -122,8 +123,8 @@
           <legend>Formule qui vous intéresse</legend>
           <div class="choix">
             <label><input type="radio" name="formule" value="ne sait pas" checked> Je ne sais pas encore</label>
-            <label><input type="radio" name="formule" value="A · Rafraîchissement"> A · Rafraîchissement</label>
-            <label><input type="radio" name="formule" value="B · Refonte complète"> B · Refonte complète</label>
+            <label><input type="radio" name="formule" value="A · Rafraîchissement"> Formule A, Rafraîchissement</label>
+            <label><input type="radio" name="formule" value="B · Refonte complète"> Formule B, Refonte complète</label>
           </div>
         </fieldset>
         <div class="champ champ-large">
@@ -141,26 +142,26 @@
           <p class="champ-erreur" id="erreur-consentement" hidden></p>
         </div>
         <div class="champ-large formulaire-actions">
-          <button class="button button-primary" type="submit" id="envoyer">Envoyer ma demande <span aria-hidden="true">→</span></button>
+          <button class="button button-primary" type="submit" id="envoyer">Envoyer ma demande</button>
         </div>
         <div class="formulaire-retour" id="retour" role="status" aria-live="polite" tabindex="-1" hidden></div>
       </form>
 
       <aside class="ensuite" aria-labelledby="ensuiteTitre">
-        <h2 id="ensuiteTitre">Et ensuite ?</h2>
+        <h2 id="ensuiteTitre">Et ensuite ?</h2>
         <ol class="ensuite-etapes">
           <li><strong>Accusé de réception</strong><span>Par e-mail, pour confirmer que nous avons bien votre demande.</span></li>
           <li><strong>Réponse sous 24 h ouvrées</strong><span>Une personne lit votre demande et vous répond, avec des questions si besoin.</span></li>
           <li><strong>Devis sous 48 h ouvrées</strong><span>Détaillé, à relire et signer en ligne. Il ne vous engage à rien avant signature.</span></li>
         </ol>
-        <p class="ensuite-mail">Vous préférez écrire directement ?<br><a href="mailto:contact@meranto-studio.com">contact@meranto-studio.com</a></p>
+        <p class="ensuite-mail">Vous préférez écrire directement ?<br><a href="mailto:contact@meranto-studio.com">contact@meranto-studio.com</a></p>
       </aside>
     </section>
 
     <section class="section container" aria-labelledby="donneesTitre">
       <div class="encadre-info">
         <h2 id="donneesTitre">Vos informations</h2>
-        <p>Les informations de ce formulaire servent uniquement à répondre à votre demande et à préparer votre devis. Elles ne sont ni vendues ni utilisées pour d'autres envois. Vous pouvez demander à les consulter, les corriger ou les effacer en écrivant à <a href="mailto:contact@meranto-studio.com">contact@meranto-studio.com</a>. Détails : <a href="confidentialite.html">politique de confidentialité</a>.</p>
+        <p>Les informations de ce formulaire servent uniquement à répondre à votre demande et à préparer votre devis. Elles ne sont ni vendues ni utilisées pour d'autres envois. Vous pouvez demander à les consulter, les corriger ou les effacer en écrivant à <a href="mailto:contact@meranto-studio.com">contact@meranto-studio.com</a>. Détails : <a href="confidentialite.html">politique de confidentialité</a>.</p>
       </div>
     </section>
 
@@ -168,8 +169,8 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-marque">
-        <img src="assets/logos/logo-horizontal-fond-sombre.svg" class="logo logo-dark" alt="Meranto Studio" width="170" height="50">
-        <img src="assets/logos/logo-horizontal-fond-clair.svg" class="logo logo-light" alt="Meranto Studio" width="170" height="50">
+        <img src="assets/logos/logo-horizontal-fond-sombre.svg" class="logo logo-dark" alt="Meranto Studio" width="170" height="50" loading="lazy">
+        <img src="assets/logos/logo-horizontal-fond-clair.svg" class="logo logo-light" alt="Meranto Studio" width="170" height="50" loading="lazy">
         <p>Sites web pour les professionnels et les petites entreprises. Tout se fait par e-mail.</p>
       </div>
       <nav aria-label="Agence">

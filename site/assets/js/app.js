@@ -1,7 +1,8 @@
-// Comportements communs : thème, accessibilité, menu, comparateur avant/après, animation de la carte de suivi.
+// Comportements communs : thème, accessibilité, menu, comparateur avant/après, scène 3D des appareils.
 (() => {
   const root = document.documentElement;
   const $ = (id) => document.getElementById(id);
+  const animationsReduites = () => root.dataset.motion === "reduce" || window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // ---------- Préférences (thème et accessibilité) ----------
   const themeToggle = $("themeToggle");
@@ -58,6 +59,7 @@
   reduceMotion.addEventListener("change", () => {
     if (reduceMotion.checked) root.dataset.motion = "reduce"; else delete root.dataset.motion;
     savePrefs();
+    majScenes();
   });
   $("resetAccess").addEventListener("click", () => {
     textScale = 100;
@@ -68,6 +70,7 @@
     delete root.dataset.motion;
     applyText();
     savePrefs();
+    majScenes();
   });
 
   // ---------- Menu sur petit écran ----------
@@ -103,7 +106,7 @@
     curseur.addEventListener("input", maj);
     maj();
   }
-  // Bascule ordinateur / téléphone (page Exemple).
+  // Bascule ordinateur / téléphone (page Réalisation).
   for (const bouton of document.querySelectorAll("[data-ecran]")) {
     bouton.addEventListener("click", () => {
       const ecran = bouton.dataset.ecran;
@@ -118,18 +121,63 @@
     });
   }
 
-  // ---------- Carte de suivi : les étapes s'affichent l'une après l'autre ----------
-  const animationsReduites = root.dataset.motion === "reduce" || window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  for (const liste of document.querySelectorAll(".suivi[data-animer]")) {
-    if (animationsReduites || !("IntersectionObserver" in window)) continue;
-    [...liste.children].forEach((li, i) => li.style.setProperty("--i", String(i)));
-    liste.classList.add("en-cours");
-    const obs = new IntersectionObserver((entrees) => {
-      if (!entrees.some((e) => e.isIntersecting)) return;
-      liste.classList.remove("en-cours");
-      liste.classList.add("joue");
-      obs.disconnect();
-    }, { threshold: .3 });
-    obs.observe(liste);
+  // ---------- Scène 3D : ordinateur et téléphone ----------
+  // L'écran défile au rythme de la page ; la scène s'incline vers la souris. Rien ne bouge si les animations sont réduites.
+  const scenes = [...document.querySelectorAll("[data-scene]")];
+
+  // Bascule Avant / Après (accueil) : elle pilote la scène de la même section.
+  for (const bouton of document.querySelectorAll("[data-version]:not([data-scene])")) {
+    bouton.addEventListener("click", () => {
+      const section = bouton.closest("section");
+      const scene = section && section.querySelector("[data-scene]");
+      if (!scene) return;
+      scene.dataset.version = bouton.dataset.version;
+      for (const b of section.querySelectorAll("button[data-version]")) b.setAttribute("aria-pressed", String(b === bouton));
+    });
+  }
+
+  // Avancement : 0 quand la scène est entièrement visible (ou à l'ouverture de la page), 1 quand elle sort par le haut.
+  const avancementBrut = (r, h) => (h * .92 - r.bottom) / (h * .8);
+  const depart = new Map(scenes.map((s) => [s, Math.max(0, avancementBrut(s.getBoundingClientRect(), window.innerHeight))]));
+  let attente = 0;
+  function majScenes() {
+    attente = 0;
+    const h = window.innerHeight;
+    for (const scene of scenes) {
+      if (animationsReduites()) {
+        scene.style.setProperty("--defil", "0");
+        scene.style.removeProperty("--rx");
+        scene.style.removeProperty("--ry");
+        continue;
+      }
+      const r = scene.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > h) continue;
+      const d = depart.get(scene) || 0;
+      const p = Math.min(1, Math.max(0, (avancementBrut(r, h) - d) / (1 - d)));
+      scene.style.setProperty("--defil", (p * p * (3 - 2 * p)).toFixed(4));
+    }
+  }
+  const demander = () => { if (!attente) attente = requestAnimationFrame(majScenes); };
+  if (scenes.length) {
+    window.addEventListener("scroll", demander, { passive: true });
+    window.addEventListener("resize", demander, { passive: true });
+    majScenes();
+  }
+
+  if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    for (const scene of scenes) {
+      scene.addEventListener("pointermove", (e) => {
+        if (animationsReduites()) return;
+        const r = scene.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - .5;
+        const y = (e.clientY - r.top) / r.height - .5;
+        scene.style.setProperty("--ry", `${(-17 + x * 18).toFixed(2)}deg`);
+        scene.style.setProperty("--rx", `${(9 - y * 10).toFixed(2)}deg`);
+      });
+      scene.addEventListener("pointerleave", () => {
+        scene.style.removeProperty("--rx");
+        scene.style.removeProperty("--ry");
+      });
+    }
   }
 })();
