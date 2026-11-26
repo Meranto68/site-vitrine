@@ -1,5 +1,6 @@
 // Assemble les pages du site : src/pages/*.html + gabarit commun (en-tête, pied de page) → site/*.html.
 // Aucune dépendance : « node outils/assembler.mjs » (ou « npm run construire »). Le dossier site/ est ce qu'on envoie chez l'hébergeur.
+import { createHash } from "node:crypto";
 import { readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -12,6 +13,18 @@ const entete = lire("src/partials/entete.html");
 const pied = lire("src/partials/pied.html");
 
 const URL_LOGO = `${URL_SITE}/assets/logos/icone-512.png`;
+
+/** Ajoute « ?v=empreinte » aux feuilles de style et scripts : après une mise à jour, les navigateurs
+ *  rechargent les fichiers modifiés au lieu de garder l'ancienne version en cache (7 jours chez l'hébergeur). */
+const empreintes = new Map();
+function versionner(html) {
+  return html.replace(/(["'])(assets\/(?:css|js)\/[\w.-]+\.(?:css|js))\1/g, (tout, guillemet, chemin) => {
+    if (!empreintes.has(chemin)) {
+      empreintes.set(chemin, createHash("sha256").update(readFileSync(join(racine, "site", chemin))).digest("hex").slice(0, 8));
+    }
+    return `${guillemet}${chemin}?v=${empreintes.get(chemin)}${guillemet}`;
+  });
+}
 
 /** Données structurées (lues par les moteurs de recherche), au format JSON-LD. */
 function donneesStructurees(meta, contenu) {
@@ -64,7 +77,7 @@ for (const fichier of readdirSync(join(racine, "src/pages")).filter((f) => f.end
     .replace("{{contenu}}", contenu)
     .replace("{{scripts}}", (meta.scripts ?? []).map((s) => `<script src="assets/js/${s}" defer></script>`).join("\n  "));
   if (/\{\{[a-z]+\}\}/.test(html)) throw new Error(`${fichier} : variable du gabarit non remplacée`);
-  writeFileSync(join(racine, "site", fichier), html);
+  writeFileSync(join(racine, "site", fichier), versionner(html));
   if (meta.indexer !== false) pages.push(chemin);
 }
 
