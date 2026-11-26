@@ -123,7 +123,7 @@
       <div class="container comparer-grille">
         <header class="tete-section">
           <h2 id="comparerTitre">Avant, après</h2>
-          <p>Glissez le curseur pour comparer l'ancien site et le nouveau, sur ordinateur ou sur téléphone.</p>
+          <p>Faites glisser la poignée pour comparer, et défilez dans l'écran pour parcourir le site de haut en bas, sur ordinateur ou sur téléphone.</p>
           <div class="bascule" role="group" aria-label="Type d'écran">
             <button type="button" class="bascule-bouton" aria-pressed="true" data-ecran="ordinateur">Ordinateur</button>
             <button type="button" class="bascule-bouton" aria-pressed="false" data-ecran="telephone">Téléphone</button>
@@ -131,13 +131,25 @@
           <p class="note">Captures publiées avec l'accord de la clinique. Photos de l'équipe floutées.</p>
         </header>
         <div class="comparateur" data-comparateur data-ecran-actif="ordinateur" style="--position: 50%">
-          <img src="assets/img/exemple/avant-ordinateur.jpg" alt="Ancien site sur ordinateur : grande photo d'en-tête, onglets, adresse de réservation écrite en toutes lettres" width="1280" height="1600" class="comparateur-avant" data-ordinateur="assets/img/exemple/avant-ordinateur.jpg" data-telephone="assets/img/exemple/avant-telephone.jpg" loading="lazy">
-          <img src="assets/img/exemple/apres-ordinateur.jpg" alt="Nouveau site sur ordinateur : bandeau d'ouverture, bouton Prendre rendez-vous en ligne, façade de la clinique dans la forme de maison du logo" width="1280" height="1600" class="comparateur-apres" data-ordinateur="assets/img/exemple/apres-ordinateur.jpg" data-telephone="assets/img/exemple/apres-telephone.jpg" loading="lazy">
-          <span class="comparateur-badge gauche" aria-hidden="true">Avant</span>
-          <span class="comparateur-badge droite" aria-hidden="true">Après</span>
-          <span class="comparateur-ligne" aria-hidden="true"></span>
-          <label class="visually-hidden" for="comparateurExemple">Position du comparateur avant / après</label>
-          <input id="comparateurExemple" class="comparateur-curseur" type="range" min="0" max="100" value="50">
+          <div class="comparateur-cadre">
+            <div class="comparateur-defil" tabindex="0" role="region" aria-label="Captures de l'ancien et du nouveau site : faites défiler pour parcourir la page de haut en bas">
+              <div class="comparateur-piste">
+                <div class="comparateur-vue">
+                  <img src="assets/img/exemple/avant-ordinateur.jpg" alt="Ancien site sur ordinateur : grande photo d'en-tête, onglets, adresse de réservation écrite en toutes lettres" width="1280" height="1600" class="comparateur-avant" data-ordinateur="assets/img/exemple/avant-ordinateur.jpg" data-telephone="assets/img/exemple/avant-telephone.jpg" loading="lazy">
+                  <img src="assets/img/exemple/apres-ordinateur-long.webp" alt="Nouveau site sur ordinateur, page complète : bandeau d'ouverture, rendez-vous en ligne, soins, équipe, histoire, visite, questions, contact" width="960" height="7498" class="comparateur-apres" data-ordinateur="assets/img/exemple/apres-ordinateur-long.webp" data-telephone="assets/img/exemple/apres-telephone-long.webp" loading="lazy">
+                  <span class="comparateur-ligne" aria-hidden="true"><span class="comparateur-poignee"></span></span>
+                </div>
+              </div>
+            </div>
+            <span class="comparateur-badge gauche" aria-hidden="true">Avant</span>
+            <span class="comparateur-badge droite" aria-hidden="true">Après</span>
+          </div>
+          <div class="comparateur-reglage">
+            <span aria-hidden="true">Avant</span>
+            <label class="visually-hidden" for="comparateurExemple">Position du comparateur avant / après</label>
+            <input id="comparateurExemple" class="comparateur-curseur" type="range" min="0" max="100" value="50">
+            <span aria-hidden="true">Après</span>
+          </div>
         </div>
       </div>
     </section>

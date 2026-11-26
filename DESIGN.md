@@ -5,8 +5,8 @@ Système visuel du site vitrine. Chaque page l'applique via les variables de `si
 ## Direction
 - **Pour qui** : dirigeants de petites entreprises et de cliniques vétérinaires, peu techniciens, qui veulent un site à jour sans y passer de temps.
 - **Ce que le site doit faire** : rassurer (méthode claire, réalisation réelle) et mener à la demande de devis.
-- **Sensation** : un studio moderne et précis, pas une start-up tape-à-l'œil. Sérieux dans le texte, une seule audace visuelle : le ruban 3D.
-- **Élément signature** : le « M » du logo devient un ruban en 3D (WebGL, sans bibliothèque) dans l'en-tête de l'accueil. Le même dégradé sert de fil conducteur fin (frise des étapes). Il n'est jamais utilisé derrière du texte.
+- **Sensation** : un studio moderne et précis, pas une start-up tape-à-l'œil. Sérieux dans le texte, une seule audace visuelle : l'étoile 3D du logo.
+- **Élément signature** : dans l'en-tête de l'accueil, le « M » du logo reste plat et net ; seule son étoile tourne lentement en 3D (WebGL, sans bibliothèque). Le dégradé du ruban sert de fil conducteur fin (frise des étapes). Il n'est jamais utilisé derrière du texte.
 
 ## Couleurs
 Tirées du logo : ruban bleu `#2460EA` → cyan `#3FC3F2` → turquoise `#1FE0BC`, étoile `#EEF2F8`.
@@ -42,13 +42,14 @@ Tirées du logo : ruban bleu `#2460EA` → cyan `#3FC3F2` → turquoise `#1FE0BC
 ## Composants
 - Boutons : principal (plein), secondaire (contour), discret (lien souligné). Survol, focus visible 3 px, désactivé. Pas de flèche ajoutée au texte.
 - Frise des étapes : vraie séquence, donc numérotée ; reliée par le fil dégradé.
-- Scène 3D d'appareils (ordinateur + téléphone) : CSS 3D, s'incline au survol, l'écran défile avec la page ; bascule Avant / Après.
+- Scène 3D d'appareils (ordinateur + téléphone, qui ne se chevauchent pas) : CSS 3D, s'incline au survol, l'écran défile avec la page ; bascule Avant / Après.
+- Comparateur avant / après : poignée à glisser (réglette au clavier), défilement de haut en bas dans l'écran ; en mode téléphone, un vrai cadre de téléphone.
 - Tableau des changements (page Réalisation) : Sujet · Avant · Maintenant.
 
 ## Mouvement
-- Un seul moment orchestré : le ruban se dessine à l'arrivée (≈ 1,6 s), puis respire doucement.
+- Un seul moment orchestré : le logo apparaît (≈ 0,9 s), l'étoile grandit puis tourne lentement sur elle-même.
 - Le reste ne bouge qu'en réponse au visiteur (survol, défilement, clic), en `ease-out`, 150 à 250 ms.
-- « Réduire les animations » (système ou panneau) : ruban figé, aucune inclinaison ni défilement automatique.
+- « Réduire les animations » (système ou panneau) : étoile figée, aucune inclinaison ni défilement automatique.
 
 ## Images
 - Captures réelles de réalisations, publiées avec l'accord du client, visages flous.

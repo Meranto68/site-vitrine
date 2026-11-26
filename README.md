@@ -1,7 +1,7 @@
 # Site vitrine Meranto Studio
 
 Site statique (HTML, CSS, JavaScript, sans framework ni dépendance) pour **meranto-studio.com**.
-Parti pris graphique (détail dans `DESIGN.md`) : palette tirée du logo (ruban bleu → cyan → turquoise sur bleu nuit), titres en Bricolage Grotesque, texte en Figtree. Une seule audace : le « M » du logo en **ruban 3D** dans l'accueil (WebGL écrit à la main, aucune bibliothèque, ≈ 10 Ko). La réalisation Maison Bleue est présentée sur un ordinateur et un téléphone en 3D (CSS), avec avant/après et le tableau de tout ce qui a changé.
+Parti pris graphique (détail dans `DESIGN.md`) : palette tirée du logo (ruban bleu → cyan → turquoise sur bleu nuit), titres en Bricolage Grotesque, texte en Figtree. Une seule audace : dans l'accueil, le logo reste plat et seule son **étoile tourne en 3D** (WebGL écrit à la main, aucune bibliothèque). La réalisation Maison Bleue est présentée sur un ordinateur et un téléphone en 3D (CSS), avec un avant/après qu'on fait défiler de haut en bas et le tableau de tout ce qui a changé.
 
 **Aperçu en ligne (GitHub Pages)** : https://meranto68.github.io/site-vitrine/ (redirige vers le dossier `site/`).
 
@@ -11,7 +11,7 @@ Parti pris graphique (détail dans `DESIGN.md`) : palette tirée du logo (ruban 
 - `site/` : **le site prêt à publier** (pages assemblées, styles, scripts, polices, images, `.htaccess`, `sitemap.xml`, `robots.txt`).
 - `outils/assembler.mjs` : assemble `src/` vers `site/`.
 - `DESIGN.md` : le système visuel (couleurs, polices, espacements, composants, mouvement). Les valeurs sont dans `site/assets/css/tokens.css`.
-- `site/assets/js/ruban3d.js` : le ruban 3D (s'arrête hors écran, figé si « réduire les animations », logo plat si la 3D n'est pas disponible).
+- `site/assets/js/etoile3d.js` : l'étoile 3D (s'arrête hors écran, figée si « réduire les animations », étoile plate si la 3D n'est pas disponible).
 - `index.html` (racine) : simple redirection vers `site/` pour l'aperçu GitHub Pages ; ne pas l'envoyer chez OVH.
 - `assets/logos/` : la banque de logos complète (SVG, PNG, favicons, image de partage). Seuls les fichiers utiles sont copiés dans `site/` ; ce dossier-là ne s'envoie pas chez l'hébergeur.
 

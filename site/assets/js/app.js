@@ -97,6 +97,8 @@
   });
 
   // ---------- Comparateur avant / après ----------
+  // La poignée (souris, doigt) et la réglette (clavier) règlent la part de l'ancien site visible.
+  // On fait défiler l'écran pour parcourir les deux pages : chacune avance au prorata de sa hauteur.
   for (const comp of document.querySelectorAll("[data-comparateur]")) {
     const curseur = comp.querySelector(".comparateur-curseur");
     const maj = () => {
@@ -105,6 +107,55 @@
     };
     curseur.addEventListener("input", maj);
     maj();
+
+    const cadre = comp.querySelector(".comparateur-cadre");
+    const defil = comp.querySelector(".comparateur-defil");
+    const piste = comp.querySelector(".comparateur-piste");
+    const vue = comp.querySelector(".comparateur-vue");
+    const poignee = comp.querySelector(".comparateur-poignee");
+    if (!cadre || !defil || !piste || !vue) continue;
+    const images = [...vue.querySelectorAll("img")];
+
+    const caler = () => {
+      const hauteur = defil.clientHeight;
+      const reste = defil.scrollHeight - hauteur;
+      const part = reste > 0 ? defil.scrollTop / reste : 0;
+      for (const img of images) {
+        const course = Math.max(0, img.offsetHeight - hauteur);
+        img.style.transform = `translateY(${(-part * course).toFixed(1)}px)`;
+      }
+    };
+    const mesurer = () => {
+      const hauteur = defil.clientHeight;
+      vue.style.height = `${hauteur}px`;
+      piste.style.height = `${Math.max(hauteur, ...images.map((img) => img.offsetHeight))}px`;
+      caler();
+    };
+    defil.addEventListener("scroll", caler, { passive: true });
+    for (const img of images) img.addEventListener("load", mesurer);
+    if ("ResizeObserver" in window) new ResizeObserver(mesurer).observe(defil);
+    comp.addEventListener("comparateur:reinitialiser", () => {
+      defil.scrollTop = 0;
+      mesurer();
+    });
+    mesurer();
+
+    if (poignee) {
+      const placer = (x) => {
+        const zone = defil.getBoundingClientRect();
+        const valeur = Math.round(Math.min(100, Math.max(0, ((x - zone.left) / zone.width) * 100)));
+        curseur.value = String(valeur);
+        maj();
+      };
+      poignee.addEventListener("pointerdown", (e) => {
+        e.preventDefault();
+        poignee.setPointerCapture(e.pointerId);
+        placer(e.clientX);
+      });
+      poignee.addEventListener("pointermove", (e) => {
+        if (poignee.hasPointerCapture(e.pointerId)) placer(e.clientX);
+      });
+    }
   }
   // Bascule ordinateur / téléphone (page Réalisation).
   for (const bouton of document.querySelectorAll("[data-ecran]")) {
@@ -117,6 +168,7 @@
           img.src = img.dataset[ecran];
           img.alt = img.alt.replace(/sur (ordinateur|téléphone)/, `sur ${ecran === "telephone" ? "téléphone" : "ordinateur"}`);
         }
+        comp.dispatchEvent(new Event("comparateur:reinitialiser"));
       }
     });
   }

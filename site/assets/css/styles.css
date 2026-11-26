@@ -1,5 +1,5 @@
 /* Meranto Studio · site vitrine. Règles du système visuel : voir DESIGN.md.
-   Une seule audace (le ruban 3D de l'accueil), le reste sobre : titres éditoriaux, beaucoup d'air, alignement à gauche. */
+   Une seule audace (l’étoile 3D de l’accueil), le reste sobre : titres éditoriaux, beaucoup d'air, alignement à gauche. */
 
 /* ---------- Base ---------- */
 
@@ -314,7 +314,7 @@ p { text-wrap: pretty; }
 
 .lien-fort:hover { color: var(--accent-text); }
 
-/* ---------- Accueil : texte + ruban 3D ---------- */
+/* ---------- Accueil : texte + logo et étoile 3D ---------- */
 
 .accueil {
   position: relative;
@@ -323,7 +323,7 @@ p { text-wrap: pretty; }
   overflow: clip;
 }
 
-/* Halo bleu derrière le ruban. */
+/* Halo bleu derrière le logo. */
 .accueil::before {
   content: "";
   position: absolute;
@@ -380,31 +380,56 @@ p { text-wrap: pretty; }
 
 .garanties svg { width: 1.2rem; height: 1.2rem; }
 
-.ruban3d {
+/* Le « M » du logo, plat et net ; seule l'étoile est en 3D (etoile3d.js). */
+.logo-scene {
   position: relative;
-  aspect-ratio: 1 / .86;
-  margin-right: calc(-1 * clamp(0rem, 3vw, 3rem));
+  justify-self: center;
+  width: min(100%, 31rem);
+  aspect-ratio: 1010 / 824;
+  margin-block: 1.5rem;
 }
 
-.ruban-repli {
-  position: absolute;
-  inset: 12% 10%;
-  width: 80%;
+.logo-m {
+  display: block;
+  width: 100%;
   height: auto;
-  transition: opacity .5s var(--ease-out);
+  filter: drop-shadow(0 34px 60px rgb(36 96 234 / 32%));
+  animation: logo-arrivee .9s var(--ease-out) both;
 }
 
-.ruban3d-canvas {
+@keyframes logo-arrivee { from { opacity: 0; transform: translateY(14px) scale(.97); } }
+
+/* Boîte de l'étoile : centrée sur l'étoile du logo (862 ; 99 dans le dessin), 1,45 fois sa taille. */
+.etoile-boite {
+  position: absolute;
+  left: 71.45%;
+  top: -5.04%;
+  width: 27.8%;
+  aspect-ratio: 1;
+}
+
+.etoile-repli {
+  position: absolute;
+  inset: 15.5%;
+  width: 69%;
+  height: 69%;
+  fill: var(--brand-star);
+  transition: opacity .3s ease;
+}
+
+:root[data-theme="light"] .etoile-repli { fill: #2F7CF0; }
+
+.etoile3d-canvas {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition: opacity .6s var(--ease-out);
+  transition: opacity .3s ease;
 }
 
-.ruban3d.pret .ruban3d-canvas { opacity: 1; }
-.ruban3d.pret .ruban-repli { opacity: 0; }
+.etoile-boite.pret .etoile3d-canvas { opacity: 1; }
+.etoile-boite.pret .etoile-repli { opacity: 0; }
 
 /* Frise des quatre étapes, reliée par le fil aux couleurs du logo. */
 .frise {
@@ -639,9 +664,9 @@ p { text-wrap: pretty; }
 
 .ordinateur {
   position: absolute;
-  left: 3%;
+  left: 0;
   top: 4%;
-  width: 78%;
+  width: 72%;
   transform-style: preserve-3d;
 }
 
@@ -690,15 +715,15 @@ p { text-wrap: pretty; }
 
 .telephone {
   position: absolute;
-  right: 3%;
-  bottom: 9%;
-  width: 21%;
+  right: 1%;
+  bottom: 6%;
+  width: 19%;
   aspect-ratio: 9 / 19;
   padding: .75cqw;
   border-radius: 3.4cqw;
   background: linear-gradient(160deg, #2A3552, #0B1222 55%);
   box-shadow: inset 0 0 0 1px rgb(255 255 255 / 12%), var(--shadow);
-  transform: translateZ(7cqw) rotateY(-6deg);
+  transform: translateZ(3cqw) rotateY(-6deg);
 }
 
 .telephone::before {
@@ -750,42 +775,78 @@ p { text-wrap: pretty; }
 .bascule-bouton:hover { background: var(--surface-soft); }
 .bascule-bouton[aria-pressed="true"] { background: var(--action); color: var(--action-text); }
 
-/* ---------- Comparateur avant / après ---------- */
+/* ---------- Comparateur avant / après (défilant) ---------- */
 
-.comparateur {
-  --position: 50%;
+.comparateur { --position: 50%; }
 
+.comparateur-cadre {
   position: relative;
   aspect-ratio: 4 / 4.2;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  background: var(--surface-soft);
+  background: #FBFAF7;
   box-shadow: var(--shadow);
-  user-select: none;
 }
 
-.comparateur[data-ecran-actif="telephone"] {
-  max-width: 21rem;
-  aspect-ratio: 9 / 17;
+/* Mode téléphone : un vrai cadre de téléphone, centré. */
+.comparateur[data-ecran-actif="telephone"] .comparateur-cadre {
+  width: min(100%, 20rem);
   margin-inline: auto;
-  border: 8px solid #0B1222;
-  border-radius: 2.2rem;
+  aspect-ratio: 9 / 19;
+  border: 11px solid transparent;
+  border-radius: 2.8rem;
+  background: linear-gradient(#FBFAF7, #FBFAF7) padding-box, linear-gradient(160deg, #3A4766, #0B1222 55%) border-box;
+  box-shadow: 0 0 0 1px rgb(255 255 255 / 16%), var(--shadow);
 }
 
-.comparateur img {
+.comparateur[data-ecran-actif="telephone"] .comparateur-cadre::before {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  top: 8px;
+  left: 50%;
+  width: 28%;
+  height: 20px;
+  border-radius: 999px;
+  background: #050A14;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.comparateur-defil {
   position: absolute;
   inset: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  background: #FBFAF7;
+}
+
+.comparateur-defil:focus-visible { outline: 3px solid var(--focus); outline-offset: -3px; }
+.comparateur-piste { position: relative; }
+
+.comparateur-vue {
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+}
+
+.comparateur-vue img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .comparateur-apres { clip-path: inset(0 0 0 var(--position)); }
 
 .comparateur-ligne {
   position: absolute;
+  z-index: 2;
   top: 0;
   bottom: 0;
   left: var(--position);
@@ -796,26 +857,34 @@ p { text-wrap: pretty; }
   pointer-events: none;
 }
 
-.comparateur-ligne::after {
-  content: "⟷";
+/* Poignée à glisser (à la souris ou au doigt) ; le clavier passe par la réglette en dessous. */
+.comparateur-poignee {
   position: absolute;
   top: 50%;
   left: 50%;
   display: grid;
   place-items: center;
-  width: 2.8rem;
-  height: 2.8rem;
+  width: 2.9rem;
+  height: 2.9rem;
   border-radius: 50%;
   background: #fff;
   color: #0A1A3F;
-  font-size: 1.1rem;
-  font-weight: 800;
   box-shadow: 0 4px 14px rgb(0 0 0 / 30%);
   transform: translate(-50%, -50%);
+  cursor: ew-resize;
+  touch-action: none;
+  pointer-events: auto;
+}
+
+.comparateur-poignee::before {
+  content: "⟷";
+  font-size: 1.15rem;
+  font-weight: 800;
 }
 
 .comparateur-badge {
   position: absolute;
+  z-index: 2;
   top: .9rem;
   padding: .2rem .7rem;
   border-radius: 999px;
@@ -828,18 +897,25 @@ p { text-wrap: pretty; }
 
 .comparateur-badge.gauche { left: .9rem; }
 .comparateur-badge.droite { right: .9rem; }
+.comparateur[data-ecran-actif="telephone"] .comparateur-badge { top: 2.4rem; }
 
-.comparateur-curseur {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  opacity: 0;
-  cursor: ew-resize;
+.comparateur-reglage {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  max-width: 32rem;
+  margin: 1.3rem auto 0;
+  color: var(--muted);
+  font-size: .9rem;
+  font-weight: 700;
 }
 
-.comparateur:has(.comparateur-curseur:focus-visible) { outline: 3px solid var(--focus); outline-offset: 4px; }
+.comparateur-curseur {
+  flex: 1;
+  min-height: 44px;
+  accent-color: var(--action);
+  cursor: ew-resize;
+}
 
 /* ---------- Pages intérieures ---------- */
 
@@ -1496,7 +1572,7 @@ p { text-wrap: pretty; }
   .main-nav .nav-cta { margin: 1rem 0 0; text-align: center; border-bottom: 0; }
   .accueil-grille { grid-template-columns: 1fr; }
   .accueil h1 { max-width: 15ch; }
-  .ruban3d { width: min(100%, 34rem); margin: -1rem auto 0; aspect-ratio: 1 / .72; }
+  .logo-scene { width: min(80%, 24rem); margin: .5rem auto 0; }
   .vitrine-grille,
   .realisation-tete-grille,
   .comparer-grille { grid-template-columns: 1fr; }
@@ -1531,8 +1607,7 @@ p { text-wrap: pretty; }
 
   .fiche-infos { grid-template-columns: 1fr; }
   .scene { aspect-ratio: 1.3; }
-  .comparateur { aspect-ratio: 4 / 5; }
-  .comparateur[data-ecran-actif="telephone"] { aspect-ratio: 9 / 17; }
+  .comparateur-cadre { aspect-ratio: 4 / 5; }
   .footer-grid { grid-template-columns: 1fr; }
 
   /* Le tableau des changements devient une suite de fiches. */
@@ -1631,6 +1706,6 @@ p { text-wrap: pretty; }
   .site-header,
   .appel,
   .site-footer,
-  .ruban3d,
+  .logo-scene,
   .scene { display: none; }
 }
